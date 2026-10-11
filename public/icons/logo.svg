@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#D9532F"/>
+  <!-- Open Book Silhouette -->
+  <path d="M12 32C15.5 30 19 30.5 24 33C29 30.5 32.5 30 36 32V17C32.5 15 29 15.5 24 18C19 15.5 15.5 15 12 17V32Z" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Middle Book Spine Line -->
+  <path d="M24 18V33" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Warm Lantern Flame / Spark of Knowledge -->
+  <circle cx="24" cy="12" r="2.5" fill="#FDF4F0"/>
+  <path d="M24 8V10" stroke="#FDF4F0" stroke-width="2" stroke-linecap="round"/>
+</svg>
