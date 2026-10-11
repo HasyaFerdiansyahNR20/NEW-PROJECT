@@ -106,7 +106,7 @@ export default async function HomePage() {
 
       {/* Trust Micro-Strip (Placed under hero per layout discipline) */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 rounded-2xl bg-white p-6 border border-stone-200/80 shadow-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl bg-white p-6 border border-stone-200/80 shadow-sm">
           <div className="flex items-center gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
               <Lightning size={22} weight="fill" />
@@ -124,16 +124,6 @@ export default async function HomePage() {
             <div>
               <h4 className="font-semibold text-sm text-ink">Notifikasi WhatsApp</h4>
               <p className="text-xs text-stone-500">Konfirmasi status pesanan otomatis ke nomor Anda</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3.5 sm:border-l sm:border-stone-200 sm:pl-4">
-            <div className="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center text-stone-700 flex-shrink-0">
-              <ShieldCheck size={22} weight="fill" />
-            </div>
-            <div>
-              <h4 className="font-semibold text-sm text-ink">Supabase &amp; Midtrans</h4>
-              <p className="text-xs text-stone-500">Keamanan data terisolasi &amp; pembayaran terlindungi</p>
             </div>
           </div>
         </div>

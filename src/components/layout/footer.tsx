@@ -66,7 +66,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck size={16} className="text-brand-500" />
-                <span>Pembayaran Aman Midtrans</span>
+                <span>Pembayaran Aman &amp; Terverifikasi</span>
               </li>
             </ul>
           </div>
