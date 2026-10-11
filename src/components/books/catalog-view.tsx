@@ -5,7 +5,7 @@ import { Book, Genre, FilterState } from '@/types';
 import { BookFilter } from './book-filter';
 import { BookCard } from './book-card';
 import { BookDetailModal } from './book-detail-modal';
-import { Books, Sparkle } from '@phosphor-icons/react';
+import { Books, BookOpen } from '@phosphor-icons/react';
 
 interface CatalogViewProps {
   initialBooks: Book[];
@@ -68,7 +68,7 @@ export function CatalogView({ initialBooks, genres }: CatalogViewProps) {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-stone-200 pb-4">
         <div>
           <div className="inline-flex items-center gap-1.5 text-brand-600 text-xs font-bold uppercase tracking-wider mb-1">
-            <Sparkle size={14} weight="fill" />
+            <BookOpen size={14} weight="bold" />
             <span>Koleksi Terkurasi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-ink">

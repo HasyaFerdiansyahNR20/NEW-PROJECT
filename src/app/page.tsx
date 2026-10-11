@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Books,
-  Sparkle,
+  BookmarkSimple,
   ArrowRight,
   ShieldCheck,
   WhatsappLogo,
@@ -27,7 +27,7 @@ export default async function HomePage() {
             {/* Left Content (max 4 elements: eyebrow, headline max 2 lines, subtext max 20 words, CTAs) */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold">
-                <Sparkle size={14} weight="fill" />
+                <BookmarkSimple size={14} weight="fill" />
                 <span>Koleksi Digital Eksklusif</span>
               </div>
 

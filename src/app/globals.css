@@ -33,3 +33,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #B8B0A0;
 }
+
+/* Sembunyikan Next.js floating dev indicator button ('N') */
+nextjs-portal,
+[data-nextjs-dev-tools-button],
+[data-nextjs-toast],
+div[data-nextjs-dev-tools-button],
+button[data-nextjs-dev-tools-button] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
