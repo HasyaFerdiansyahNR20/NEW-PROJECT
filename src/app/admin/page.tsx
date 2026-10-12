@@ -21,6 +21,15 @@ export default async function AdminPage() {
     redirect('/login?redirectedFrom=/admin');
   }
 
+  const isAdmin =
+    user.user_metadata?.role === 'admin' ||
+    user.email === 'admin@lenteraaksara.id' ||
+    user.email === 'olegacor15@gmail.com';
+
+  if (!isAdmin) {
+    redirect('/dashboard');
+  }
+
   const [books, genres] = await Promise.all([getBooks(), getGenres()]);
 
   // Compute business metrics
