@@ -20,6 +20,7 @@ import { formatRupiah } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
+import { processCheckoutAction } from '@/server/actions/order-actions';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -47,30 +48,27 @@ export default function CheckoutPage() {
 
     setLoading(true);
     try {
-      const totalAmount = getTotalPrice();
-      const orderId = `ORD-${Date.now().toString().slice(-6)}`;
+      const orderItems = items.map((i) => ({
+        bookId: i.book.id,
+        quantity: i.quantity,
+      }));
 
-      // Simulate WhatsApp Notification dispatch
-      const waMessage = `Halo ${customerName}! Terima kasih telah berbelanja di Lentera Aksara. Pesanan #${orderId} sejumlah ${formatRupiah(totalAmount)} telah kami terima. Akses novel & komik digital Anda telah aktif di rak baca.`;
-
-      // Simulating server action or calling API route
-      await fetch('/api/webhooks/midtrans', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          order_id: orderId,
-          gross_amount: totalAmount,
-          transaction_status: 'settlement',
-          customer_phone: customerPhone,
-          customer_name: customerName,
-        }),
-      }).catch(() => null);
-
-      setOrderSuccess({
-        orderId,
-        totalAmount,
+      const res = await processCheckoutAction({
         customerName,
         customerPhone,
+        items: orderItems,
+      });
+
+      if (res.error) {
+        alert(res.error);
+        return;
+      }
+
+      setOrderSuccess({
+        orderId: res.orderId,
+        totalAmount: res.totalAmount,
+        customerName: res.customerName,
+        customerPhone: res.customerPhone,
         itemsCount: getTotalItems(),
       });
 

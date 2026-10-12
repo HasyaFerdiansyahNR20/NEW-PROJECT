@@ -881,7 +881,11 @@ export async function getBooks(filters?: Partial<FilterState>): Promise<Book[]> 
     }
 
     if (filters?.search) {
-      query = query.or(`title.ilike.%${filters.search}%,author.ilike.%${filters.search}%`);
+      // OWASP Remediation: Sanitasi karakter kontrol PostgREST untuk mencegah filter injection
+      const cleanSearch = filters.search.replace(/[,()";:\\]/g, '').trim();
+      if (cleanSearch) {
+        query = query.or(`title.ilike.%${cleanSearch}%,author.ilike.%${cleanSearch}%`);
+      }
     }
 
     if (filters?.sortBy === 'price_low') {

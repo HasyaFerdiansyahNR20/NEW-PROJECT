@@ -1,8 +1,22 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
 
+/**
+ * Endpoint internal khusus pemeliharaan sistem (Maintenance / Cron).
+ * Dilindungi token autentikasi internal untuk mencegah eksploitasi bypass konfirmasi email.
+ */
 export async function POST(request: Request) {
   try {
+    const internalSecret = request.headers.get('x-internal-secret');
+    const expectedSecret = process.env.INTERNAL_API_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!internalSecret || internalSecret !== expectedSecret) {
+      return NextResponse.json(
+        { error: 'Akses ditolak: Diperlukan otorisasi internal sistem.' },
+        { status: 403 }
+      );
+    }
+
     const { email } = await request.json();
     if (!email) {
       return NextResponse.json({ error: 'Email wajib diisi' }, { status: 400 });

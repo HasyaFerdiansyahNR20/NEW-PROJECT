@@ -122,35 +122,67 @@ ALTER TABLE public.order_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.transactions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.notification_logs ENABLE ROW LEVEL SECURITY;
 
--- Genres & Books: Public Read Access
+-- =======================================================
+-- ROW LEVEL SECURITY (RLS) - OWASP LEAST PRIVILEGE HARDENED
+-- =======================================================
+
+-- 1. Genres & Books: Public Read Access (Katalog Publik)
 CREATE POLICY "Public read genres" ON public.genres FOR SELECT USING (true);
 CREATE POLICY "Public read books" ON public.books FOR SELECT USING (true);
 
--- Carts & Items: Allow read/write for session or user
-CREATE POLICY "Allow all cart select" ON public.carts FOR SELECT USING (true);
-CREATE POLICY "Allow all cart insert" ON public.carts FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow all cart update" ON public.carts FOR UPDATE USING (true);
+-- 2. Profiles: Isolasi Data Pengguna Berdasarkan Auth UID (Mencegah IDOR)
+CREATE POLICY "Users can only read own profile" 
+    ON public.profiles FOR SELECT 
+    USING (auth.uid()::TEXT = user_id);
 
-CREATE POLICY "Allow all cart_items select" ON public.cart_items FOR SELECT USING (true);
-CREATE POLICY "Allow all cart_items insert" ON public.cart_items FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow all cart_items update" ON public.cart_items FOR UPDATE USING (true);
-CREATE POLICY "Allow all cart_items delete" ON public.cart_items FOR DELETE USING (true);
+CREATE POLICY "Users can only insert own profile" 
+    ON public.profiles FOR INSERT 
+    WITH CHECK (auth.uid()::TEXT = user_id);
 
--- Orders: Allow read & insert
-CREATE POLICY "Allow orders select" ON public.orders FOR SELECT USING (true);
-CREATE POLICY "Allow orders insert" ON public.orders FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow orders update" ON public.orders FOR UPDATE USING (true);
+CREATE POLICY "Users can only update own profile" 
+    ON public.profiles FOR UPDATE 
+    USING (auth.uid()::TEXT = user_id)
+    WITH CHECK (auth.uid()::TEXT = user_id);
 
-CREATE POLICY "Allow order_items select" ON public.order_items FOR SELECT USING (true);
-CREATE POLICY "Allow order_items insert" ON public.order_items FOR INSERT WITH CHECK (true);
+-- 3. Carts & Cart Items: Terisolasi untuk Pengguna Pemilik
+CREATE POLICY "Users can manage own cart" 
+    ON public.carts FOR ALL 
+    USING (auth.uid()::TEXT = user_id)
+    WITH CHECK (auth.uid()::TEXT = user_id);
 
--- Profiles
-CREATE POLICY "Allow profiles select" ON public.profiles FOR SELECT USING (true);
-CREATE POLICY "Allow profiles insert" ON public.profiles FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow profiles update" ON public.profiles FOR UPDATE USING (true);
+CREATE POLICY "Users can manage own cart items" 
+    ON public.cart_items FOR ALL 
+    USING (EXISTS (
+        SELECT 1 FROM public.carts 
+        WHERE carts.id = cart_items.cart_id 
+        AND carts.user_id = auth.uid()::TEXT
+    ))
+    WITH CHECK (EXISTS (
+        SELECT 1 FROM public.carts 
+        WHERE carts.id = cart_items.cart_id 
+        AND carts.user_id = auth.uid()::TEXT
+    ));
 
--- Transactions & Notification Logs
-CREATE POLICY "Allow transactions select" ON public.transactions FOR SELECT USING (true);
-CREATE POLICY "Allow transactions insert" ON public.transactions FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow notification_logs select" ON public.notification_logs FOR SELECT USING (true);
-CREATE POLICY "Allow notification_logs insert" ON public.notification_logs FOR INSERT WITH CHECK (true);
+-- 4. Orders: Pengguna Hanya Bisa Membaca Pesanan Miliknya Sendiri (Mencegah IDOR)
+CREATE POLICY "Users can read own orders" 
+    ON public.orders FOR SELECT 
+    USING (auth.uid()::TEXT = user_id);
+
+CREATE POLICY "Users can insert own orders" 
+    ON public.orders FOR INSERT 
+    WITH CHECK (auth.uid()::TEXT = user_id);
+
+-- Pembaruan status pesanan (misal: 'paid') HANYA boleh melalui Service Role Server, BUKAN oleh user langsung!
+
+-- 5. Order Items: Hanya Dapat Dibaca oleh Pemilik Pesanan
+CREATE POLICY "Users can read own order items" 
+    ON public.order_items FOR SELECT 
+    USING (EXISTS (
+        SELECT 1 FROM public.orders 
+        WHERE orders.id = order_items.order_id 
+        AND orders.user_id = auth.uid()::TEXT
+    ));
+
+-- 6. Transactions & Notification Logs: Terproteksi Penuh (Server Service Role Only)
+-- Tidak ada policy publik anonim untuk tabel transaksi finansial dan audit log.
+

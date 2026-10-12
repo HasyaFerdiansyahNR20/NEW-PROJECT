@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Check, FloppyDisk } from '@phosphor-icons/react';
-import { createClient } from '@/lib/supabase/client';
+import { updateProfileAction } from '@/server/actions/auth-actions';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -10,14 +10,13 @@ interface ProfileFormProps {
   initialFullName?: string;
   initialPhoneNumber?: string;
   email?: string;
-  userId: string;
+  userId?: string;
 }
 
 export function ProfileForm({
   initialFullName = '',
   initialPhoneNumber = '',
   email = '',
-  userId,
 }: ProfileFormProps) {
   const [fullName, setFullName] = React.useState(initialFullName);
   const [phoneNumber, setPhoneNumber] = React.useState(initialPhoneNumber);
@@ -32,16 +31,13 @@ export function ProfileForm({
     setSuccess(false);
 
     try {
-      const supabase = createClient();
-      const { error: updateError } = await supabase.from('profiles').upsert({
-        user_id: userId,
-        full_name: fullName,
-        phone_number: phoneNumber,
-        updated_at: new Date().toISOString(),
+      const res = await updateProfileAction({
+        fullName,
+        phoneNumber,
       });
 
-      if (updateError) {
-        setError(updateError.message);
+      if (res.error) {
+        setError(res.error);
       } else {
         setSuccess(true);
         setTimeout(() => setSuccess(false), 3000);

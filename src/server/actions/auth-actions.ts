@@ -99,3 +99,27 @@ export async function getCurrentUser() {
     profile: profile ? (profile as Profile) : null,
   };
 }
+
+export async function updateProfileAction(data: { fullName: string; phoneNumber: string }) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return { error: 'Anda harus masuk terlebih dahulu.' };
+  }
+
+  const { error } = await supabase.from('profiles').upsert({
+    user_id: user.id,
+    full_name: data.fullName?.slice(0, 100) || null,
+    phone_number: data.phoneNumber?.slice(0, 25) || null,
+    updated_at: new Date().toISOString(),
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { success: true };
+}

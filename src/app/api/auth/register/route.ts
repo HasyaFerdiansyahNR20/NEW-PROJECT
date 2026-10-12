@@ -1,17 +1,27 @@
 import { NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/server';
+import { z } from 'zod';
+
+const RegisterSchema = z.object({
+  email: z.string().email('Format email tidak valid').max(255),
+  password: z.string().min(6, 'Kata sandi minimal 6 karakter').max(100),
+  fullName: z.string().max(100).optional(),
+  phoneNumber: z.string().max(25).optional(),
+});
 
 export async function POST(request: Request) {
   try {
-    const { email, password, fullName, phoneNumber } = await request.json();
+    const rawBody = await request.json();
+    const parseResult = RegisterSchema.safeParse(rawBody);
 
-    if (!email || !password) {
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: 'Email dan kata sandi wajib diisi.' },
+        { error: parseResult.error.errors[0].message },
         { status: 400 }
       );
     }
 
+    const { email, password, fullName, phoneNumber } = parseResult.data;
     const admin = createAdminClient();
 
     // 1. Create user with email_confirm: true so no manual confirmation link is needed
@@ -26,17 +36,12 @@ export async function POST(request: Request) {
     });
 
     if (createError) {
-      // If user already exists, check if unconfirmed and confirm them
+      // OWASP Remediation: Never overwrite existing user passwords on duplicate register!
       if (createError.message.includes('already registered')) {
-        const { data: usersData } = await admin.auth.admin.listUsers();
-        const existing = usersData?.users?.find((u) => u.email === email);
-        if (existing) {
-          await admin.auth.admin.updateUserById(existing.id, {
-            email_confirm: true,
-            password: password,
-          });
-          return NextResponse.json({ success: true, user: existing });
-        }
+        return NextResponse.json(
+          { error: 'Email ini sudah terdaftar. Silakan gunakan menu masuk.' },
+          { status: 409 }
+        );
       }
       return NextResponse.json({ error: createError.message }, { status: 400 });
     }
