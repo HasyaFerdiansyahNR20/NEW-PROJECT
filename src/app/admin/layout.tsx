@@ -21,12 +21,17 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const user = await getCurrentUser();
+  const isAdmin = isAdminUser(user);
 
-  if (!user || !isAdminUser(user)) {
-    redirect('/login?redirectedFrom=/admin');
+  if (!isAdmin) {
+    return (
+      <div className="min-h-[85dvh] bg-paper-alt flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        {children}
+      </div>
+    );
   }
 
-  const email = user.email || 'admin@lenteraaksara.id';
+  const email = user?.email || 'admin@lenteraaksara.id';
 
   return (
     <div className="min-h-[85dvh] bg-paper-alt">

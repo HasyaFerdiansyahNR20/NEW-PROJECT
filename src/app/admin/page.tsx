@@ -14,13 +14,14 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 import { isAdminUser } from '@/lib/auth-utils';
+import { AdminLoginForm } from '@/components/forms/admin-login-form';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
   const user = await getCurrentUser();
   if (!user || !isAdminUser(user)) {
-    redirect('/login?redirectedFrom=/admin');
+    return <AdminLoginForm currentEmail={user?.email} />;
   }
 
   const [books, genres] = await Promise.all([getBooks(), getGenres()]);

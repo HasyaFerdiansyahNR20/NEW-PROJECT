@@ -47,19 +47,10 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user && (isDashboardRoute || isAdminRoute)) {
+  if (!user && isDashboardRoute) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     url.searchParams.set('redirectedFrom', request.nextUrl.pathname);
-    return NextResponse.redirect(url);
-  }
-
-  const isAdmin = isAdminUser(user);
-
-  // Prevent non-admin users from accessing /admin
-  if (user && isAdminRoute && !isAdmin) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/dashboard';
     return NextResponse.redirect(url);
   }
 
