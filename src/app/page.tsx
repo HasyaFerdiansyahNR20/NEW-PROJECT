@@ -68,7 +68,7 @@ export default async function HomePage() {
                 <div className="mt-4 flex gap-4 items-center">
                   <div className="relative w-24 h-32 rounded-lg overflow-hidden flex-shrink-0 shadow-md bg-stone-100">
                     <Image
-                      src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80"
+                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
                       alt="Kala Langit Bersua Samudra"
                       fill
                       className="object-cover"

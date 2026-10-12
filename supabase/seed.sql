@@ -23,7 +23,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     45,
     'Sebuah novel puitis tentang pertemuan takdir dua insan di pesisir Nusantara yang dipisahkan oleh rahasia masa lalu.',
-    'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-002',
@@ -34,7 +34,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     60,
     'Komik aksi epik petualangan ksatria kuno yang terbangun di era metropolis futuristik Jakarta 2099.',
-    'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-003',
@@ -45,7 +45,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     30,
     'Kisah petualangan seorang pemuda pemahat batu yang menemukan gerbang menuju peradaban magis yang terlupakan.',
-    'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-004',
@@ -56,7 +56,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     25,
     'Koleksi korespondensi intim dua pelajar pertukaran budaya yang menemukan ketenangan di tengah rintik hujan.',
-    'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-005',
@@ -67,7 +67,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.6,
     50,
     'Detektif swasta mengusut kematian seorang kurator arsip rahasia perpustakaan kuno di pedalaman Jawa Barat.',
-    'https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-006',
@@ -78,7 +78,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     80,
     'Panduan praktis mengembalikan kendali konsentrasi, kedamaian berpikir, dan ketajaman kerja di era distraksi digital.',
-    'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-007',
@@ -89,7 +89,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     70,
     'Manga pertarungan waktu di mana setiap detakan jantung menentukan kemenangan atau kekalahan di medan gladiator dimensi.',
-    'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80'
 ),
 (
     'book-008',
@@ -100,7 +100,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     35,
     'Kisah perjalanan menelusuri jejak sastrawan hilang yang meninggalkan naskah rahasia di pelosok perbukitan Menoreh.',
-    'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80'
+    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80'
 )
 ON CONFLICT (id) DO UPDATE SET
     title = EXCLUDED.title,
