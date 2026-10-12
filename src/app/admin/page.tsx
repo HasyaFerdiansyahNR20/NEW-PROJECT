@@ -13,21 +13,14 @@ import { getCurrentUser } from '@/server/actions/auth-actions';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
+import { isAdminUser } from '@/lib/auth-utils';
+
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
   const user = await getCurrentUser();
-  if (!user) {
+  if (!user || !isAdminUser(user)) {
     redirect('/login?redirectedFrom=/admin');
-  }
-
-  const isAdmin =
-    user.user_metadata?.role === 'admin' ||
-    user.email === 'admin@lenteraaksara.id' ||
-    user.email === 'olegacor15@gmail.com';
-
-  if (!isAdmin) {
-    redirect('/dashboard');
   }
 
   const [books, genres] = await Promise.all([getBooks(), getGenres()]);

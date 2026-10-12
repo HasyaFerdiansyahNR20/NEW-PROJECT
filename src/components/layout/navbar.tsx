@@ -11,9 +11,11 @@ import {
   X,
   MagnifyingGlass,
   SignIn,
+  ShieldCheck,
 } from '@phosphor-icons/react';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/useAuth';
+import { isAdminUser } from '@/lib/auth-utils';
 import { Button } from '@/components/ui/button';
 
 export function Navbar() {
@@ -79,12 +81,25 @@ export function Navbar() {
 
           {/* User Auth or Dashboard */}
           {user ? (
-            <Link href="/dashboard">
-              <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
-                <User size={16} weight="bold" />
-                <span>Dashboard</span>
-              </Button>
-            </Link>
+            isAdminUser(user) ? (
+              <Link href="/admin">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="hidden sm:inline-flex bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200"
+                >
+                  <ShieldCheck size={16} weight="fill" className="text-amber-600" />
+                  <span>Dashboard Admin</span>
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/dashboard">
+                <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
+                  <User size={16} weight="bold" />
+                  <span>Dashboard</span>
+                </Button>
+              </Link>
+            )
           ) : (
             <div className="hidden sm:flex items-center gap-2">
               <Link href="/login">
@@ -129,12 +144,25 @@ export function Navbar() {
           </nav>
           <div className="pt-2 border-t border-stone-200 flex flex-col gap-2">
             {user ? (
-              <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="secondary" size="sm" className="w-full">
-                  <User size={16} weight="bold" />
-                  <span>Dashboard Akun</span>
-                </Button>
-              </Link>
+              isAdminUser(user) ? (
+                <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="w-full bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200 justify-start"
+                  >
+                    <ShieldCheck size={16} weight="fill" className="text-amber-600" />
+                    <span>Dashboard Admin (CRUD)</span>
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="secondary" size="sm" className="w-full">
+                    <User size={16} weight="bold" />
+                    <span>Dashboard Akun</span>
+                  </Button>
+                </Link>
+              )
             ) : (
               <>
                 <Link href="/login" onClick={() => setMobileMenuOpen(false)}>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SignIn, Lock, EnvelopeSimple } from '@phosphor-icons/react';
 import { createClient } from '@/lib/supabase/client';
+import { isAdminUser } from '@/lib/auth-utils';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -22,7 +23,7 @@ export function LoginForm() {
 
     try {
       const supabase = createClient();
-      let { error: signInError } = await supabase.auth.signInWithPassword({
+      let { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -42,6 +43,7 @@ export function LoginForm() {
               email,
               password,
             });
+            signInData = retry.data;
             signInError = retry.error;
           }
         } catch {
@@ -55,7 +57,19 @@ export function LoginForm() {
         return;
       }
 
-      router.push('/dashboard');
+      const currentUser = signInData?.user;
+      const isAdmin = isAdminUser(currentUser);
+
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectedFrom = searchParams.get('redirectedFrom');
+
+      if (redirectedFrom) {
+        router.push(redirectedFrom);
+      } else if (isAdmin) {
+        router.push('/admin');
+      } else {
+        router.push('/dashboard');
+      }
       router.refresh();
     } catch (err: any) {
       setError(err?.message || 'Terjadi kesalahan saat masuk.');

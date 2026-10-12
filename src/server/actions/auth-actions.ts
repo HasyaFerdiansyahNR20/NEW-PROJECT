@@ -3,6 +3,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import { isAdminUser } from '@/lib/auth-utils';
 
 const AuthSchema = z.object({
   email: z.string().email('Format email tidak valid'),
@@ -21,13 +22,17 @@ export async function loginAction(formData: FormData) {
   }
 
   const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data: authData, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
 
   if (error) {
     return { error: error.message };
+  }
+
+  if (isAdminUser(authData?.user)) {
+    redirect('/admin');
   }
 
   redirect('/dashboard');

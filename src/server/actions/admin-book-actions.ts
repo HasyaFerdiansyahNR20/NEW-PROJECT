@@ -3,6 +3,8 @@
 import { createAdminClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
+import { getCurrentUser } from '@/server/actions/auth-actions';
+import { isAdminUser } from '@/lib/auth-utils';
 
 const BookFormSchema = z.object({
   title: z.string().min(2, 'Judul buku minimal 2 karakter').max(150),
@@ -13,6 +15,13 @@ const BookFormSchema = z.object({
   description: z.string().max(1000).optional(),
   coverUrl: z.string().optional(),
 });
+
+async function verifyAdminAuth() {
+  const user = await getCurrentUser();
+  if (!user || !isAdminUser(user)) {
+    throw new Error('Akses ditolak: Hanya akun administrator yang diizinkan.');
+  }
+}
 
 export async function createAdminBookAction(formData: {
   title: string;
@@ -31,6 +40,7 @@ export async function createAdminBookAction(formData: {
   const { title, author, genreId, price, stock, description, coverUrl } = parseResult.data;
 
   try {
+    await verifyAdminAuth();
     const admin = createAdminClient();
     const id = `book-adm-${Date.now().toString().slice(-6)}`;
 
@@ -78,6 +88,7 @@ export async function updateAdminBookAction(id: string, formData: {
   const { title, author, genreId, price, stock, description, coverUrl } = parseResult.data;
 
   try {
+    await verifyAdminAuth();
     const admin = createAdminClient();
     const { data, error } = await admin
       .from('books')
@@ -109,6 +120,7 @@ export async function updateAdminBookAction(id: string, formData: {
 
 export async function deleteAdminBookAction(id: string) {
   try {
+    await verifyAdminAuth();
     const admin = createAdminClient();
     const { error } = await admin.from('books').delete().eq('id', id);
 

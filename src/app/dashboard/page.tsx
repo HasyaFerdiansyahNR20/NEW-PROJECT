@@ -6,11 +6,17 @@ import { Card } from '@/components/ui/card';
 import { Books, ShoppingBag } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { isAdminUser } from '@/lib/auth-utils';
 
 export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();
+
+  if (isAdminUser(user)) {
+    redirect('/admin');
+  }
 
   // If user is not yet logged in or demo mode, provide sample data
   const userId = user?.id || 'demo-user-id';

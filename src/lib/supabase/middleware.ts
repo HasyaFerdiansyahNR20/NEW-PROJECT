@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { isAdminUser } from '@/lib/auth-utils';
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -53,9 +54,25 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  const isAdmin = isAdminUser(user);
+
   if (user && isAuthRoute) {
     const url = request.nextUrl.clone();
+    url.pathname = isAdmin ? '/admin' : '/dashboard';
+    return NextResponse.redirect(url);
+  }
+
+  // Prevent non-admin users from accessing /admin
+  if (user && isAdminRoute && !isAdmin) {
+    const url = request.nextUrl.clone();
     url.pathname = '/dashboard';
+    return NextResponse.redirect(url);
+  }
+
+  // Prevent admin users from accessing customer dashboard /dashboard, route them directly to /admin
+  if (user && isDashboardRoute && isAdmin) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/admin';
     return NextResponse.redirect(url);
   }
 
