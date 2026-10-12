@@ -28,7 +28,7 @@ export default function CheckoutPage() {
   const { user } = useAuth();
 
   const [customerName, setCustomerName] = React.useState('');
-  const [customerPhone, setCustomerPhone] = React.useState('');
+  const [customerPhone, setCustomerPhone] = React.useState('083890324481');
   const [customerEmail, setCustomerEmail] = React.useState('');
   const [paymentMethod, setPaymentMethod] = React.useState<'qris' | 'va'>('qris');
   const [loading, setLoading] = React.useState(false);
@@ -38,7 +38,7 @@ export default function CheckoutPage() {
     if (user) {
       setCustomerEmail(user.email || '');
       setCustomerName(user.user_metadata?.full_name || '');
-      setCustomerPhone(user.user_metadata?.phone_number || '');
+      setCustomerPhone(user.user_metadata?.phone_number || '083890324481');
     }
   }, [user]);
 
@@ -188,7 +188,7 @@ export default function CheckoutPage() {
               <Input
                 label="Nomor WhatsApp"
                 type="tel"
-                placeholder="Contoh: 081234567890"
+                placeholder="Contoh: 083890324481"
                 helperText="Status pesanan & tautan baca akan dikirim langsung via WhatsApp Gateway"
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}

@@ -16,7 +16,7 @@ export default async function DashboardPage() {
   const userId = user?.id || 'demo-user-id';
   const email = user?.email || 'demo@lenteraaksara.id';
   const fullName = user?.profile?.full_name || user?.user_metadata?.full_name || 'Pembaca Setia';
-  const phoneNumber = user?.profile?.phone_number || user?.user_metadata?.phone_number || '081234567890';
+  const phoneNumber = user?.profile?.phone_number || user?.user_metadata?.phone_number || '083890324481';
 
   const orders = await getUserOrders(userId);
 

@@ -11,6 +11,7 @@ import {
   X,
   MagnifyingGlass,
   SignIn,
+  ShieldCheck,
 } from '@phosphor-icons/react';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/useAuth';
@@ -77,6 +78,18 @@ export function Navbar() {
             )}
           </button>
 
+          {/* Admin Panel Link */}
+          <Link href="/admin">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hidden sm:inline-flex text-xs font-semibold text-stone-600 hover:text-brand-600 gap-1.5 border border-stone-200/80 rounded-xl"
+            >
+              <ShieldCheck size={16} className="text-emerald-600" />
+              <span>Admin</span>
+            </Button>
+          </Link>
+
           {/* User Auth or Dashboard */}
           {user ? (
             <Link href="/dashboard">
@@ -126,6 +139,14 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/admin"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg text-sm font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-colors flex items-center gap-2"
+            >
+              <ShieldCheck size={16} className="text-emerald-600" />
+              <span>Panel Admin Toko</span>
+            </Link>
           </nav>
           <div className="pt-2 border-t border-stone-200 flex flex-col gap-2">
             {user ? (

@@ -81,7 +81,7 @@ export function RegisterForm() {
       <Input
         label="Nomor WhatsApp"
         type="tel"
-        placeholder="Contoh: 081234567890"
+        placeholder="Contoh: 083890324481"
         helperText="Untuk pengiriman notifikasi pembelian dan akses buku digital"
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}

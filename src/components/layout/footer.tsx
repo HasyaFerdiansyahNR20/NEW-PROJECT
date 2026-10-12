@@ -79,10 +79,15 @@ export function Footer() {
             <p className="text-xs text-stone-600">
               Butuh bantuan pemesanan atau lisensi baca? Hubungi tim kurator kami.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-200/60 text-xs font-medium text-stone-800">
+            <a
+              href="https://wa.me/6283890324481?text=Halo%20Lentera%20Aksara,%20saya%20ingin%20bertanya%20tentang%20katalog%20buku%20digital."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-xs font-semibold text-emerald-800 border border-emerald-200 transition-colors"
+            >
               <WhatsappLogo size={16} weight="fill" className="text-emerald-600" />
-              <span>+62 812-3456-7890</span>
-            </div>
+              <span>+62 838-9032-4481</span>
+            </a>
           </div>
         </div>
 
