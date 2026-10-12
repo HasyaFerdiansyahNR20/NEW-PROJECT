@@ -105,7 +105,7 @@ export default async function HomePage() {
       </section>
 
       {/* Trust Micro-Strip (Placed under hero per layout discipline) */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="tentang" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl bg-white p-6 border border-stone-200/80 shadow-sm">
           <div className="flex items-center gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">

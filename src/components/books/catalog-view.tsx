@@ -21,6 +21,34 @@ export function CatalogView({ initialBooks, genres }: CatalogViewProps) {
   });
   const [selectedBook, setSelectedBook] = React.useState<Book | null>(null);
 
+  // Sync hash links from navbar (e.g. #novel-fiksi, #komik-manga) instantly
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash || hash === 'katalog') {
+        if (hash === 'katalog') {
+          const el = document.getElementById('katalog');
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+
+      const match = genres.find(
+        (g) => g.slug === hash || g.id === hash || g.name.toLowerCase().includes(hash)
+      );
+
+      if (match) {
+        setFilters((prev) => ({ ...prev, genreId: match.id }));
+        const el = document.getElementById('katalog');
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [genres]);
+
   // Filter logic on client for instant real-time feedback
   const filteredBooks = React.useMemo(() => {
     let result = [...initialBooks];

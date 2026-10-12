@@ -29,16 +29,21 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  // Refresh auth session
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   // Protected routes check
   const isDashboardRoute = request.nextUrl.pathname.startsWith('/dashboard');
   const isAuthRoute =
     request.nextUrl.pathname.startsWith('/login') ||
     request.nextUrl.pathname.startsWith('/register');
+
+  // Skip remote network auth call on public browsing routes for instant responsiveness
+  if (!isDashboardRoute && !isAuthRoute) {
+    return supabaseResponse;
+  }
+
+  // Refresh auth session only when strictly necessary
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (!user && isDashboardRoute) {
     const url = request.nextUrl.clone();
