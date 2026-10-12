@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cvihwknmtrxteaglvvlf.supabase.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'covers.openlibrary.org',
+      },
     ],
   },
 };

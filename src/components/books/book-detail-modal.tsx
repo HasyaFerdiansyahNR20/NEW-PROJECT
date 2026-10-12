@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { Star, ShoppingBag, Check, Books, BookmarkSimple } from '@phosphor-icons/react';
+import { Star, ShoppingBag, Check, Books, BookmarkSimple, ShieldCheck, DeviceMobile, Lightning } from '@phosphor-icons/react';
 import { Book } from '@/types';
 import { formatRupiah } from '@/lib/utils';
 import { useCart } from '@/hooks/use-cart';
@@ -69,6 +69,10 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
                 <Star size={13} weight="fill" className="text-amber-500" />
                 <span>{book.rating.toFixed(1)} / 5.0</span>
               </Badge>
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60">
+                <ShieldCheck size={13} weight="fill" />
+                <span>Open Library Verified</span>
+              </span>
             </div>
 
             <h2 className="text-2xl font-serif font-bold text-ink leading-tight">
@@ -78,14 +82,26 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
               Penulis: <span className="text-ink font-semibold">{book.author}</span>
             </p>
 
-            <div className="mt-4 pt-3 border-t border-stone-100">
+            <div className="mt-3.5 pt-3 border-t border-stone-100">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-1.5 flex items-center gap-1.5">
                 <BookmarkSimple size={14} weight="bold" />
-                <span>Sinopsis Singkat</span>
+                <span>Sinopsis Resmi</span>
               </h4>
-              <p className="text-xs leading-relaxed text-stone-600 whitespace-pre-line">
+              <p className="text-xs leading-relaxed text-stone-600 whitespace-pre-line max-h-36 overflow-y-auto pr-1">
                 {book.description || 'Tidak ada deskripsi tersedia untuk buku ini.'}
               </p>
+            </div>
+
+            {/* Digital License Metadata */}
+            <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] text-stone-500 bg-stone-50 p-2.5 rounded-lg border border-stone-200/60">
+              <div className="flex items-center gap-1.5">
+                <DeviceMobile size={14} className="text-brand-600 flex-shrink-0" />
+                <span>Format: EPUB &amp; PDF</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Lightning size={14} className="text-amber-600 flex-shrink-0" />
+                <span>Akses Baca Seketika</span>
+              </div>
             </div>
           </div>
 

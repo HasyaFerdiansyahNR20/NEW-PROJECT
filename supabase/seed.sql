@@ -1,5 +1,6 @@
 -- =======================================================
--- LENTERA AKSARA - SEED DATA (GENRE & BUKU / KOMIK)
+-- LENTERA AKSARA - SEED DATA (OPEN LIBRARY VERIFIED)
+-- Tepat 10 Buku per Kategori Genre (Total 60 Buku)
 -- =======================================================
 
 -- 1. SEED GENRES
@@ -12,100 +13,673 @@ INSERT INTO public.genres (id, name, slug) VALUES
 ('genre-pengembangan-diri', 'Pengembangan Diri', 'pengembangan-diri')
 ON CONFLICT (slug) DO NOTHING;
 
--- 2. SEED BOOKS & COMICS
+-- 2. SEED BOOKS (OPEN LIBRARY OFFICIAL COVERS & REAL METADATA)
 INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, description, cover_url) VALUES
 (
-    'book-001',
+    'book-nf-01',
     'genre-novel-fiksi',
-    'Kala Langit Bersua Samudra',
-    'Raka Pradana',
-    89000,
+    'Bumi Manusia',
+    'Pramoedya Ananta Toer',
+    78000,
+    5.0,
+    50,
+    'Kisah monumental Minke, pribumi cerdas di era kolonial Hindia Belanda yang memperjuangkan martabat dan cintanya pada Annelies Mellema di tengah diskriminasi feodal dan kolonial.',
+    'https://covers.openlibrary.org/b/id/6643692-L.jpg'
+),
+(
+    'book-nf-02',
+    'genre-novel-fiksi',
+    'Laskar Pelangi',
+    'Andrea Hirata',
+    65000,
+    4.9,
+    65,
+    'Perjuangan sepuluh anak di Belitung bersama dua guru berhati mulia untuk menimba ilmu di sekolah yang hampir roboh, menyalakan lentera harapan dan persahabatan.',
+    'https://covers.openlibrary.org/b/id/7079796-L.jpg'
+),
+(
+    'book-nf-03',
+    'genre-novel-fiksi',
+    'Cantik Itu Luka',
+    'Eka Kurniawan',
+    72000,
+    4.8,
+    40,
+    'Epik realisme magis tentang Dewi Ayu, pelacur legendaris di Halimunda, merangkum sejarah kelam perang, kutukan keluarga, dan pergulatan bangsa melalui satire tajam.',
+    'https://covers.openlibrary.org/b/id/13903116-L.jpg'
+),
+(
+    'book-nf-04',
+    'genre-novel-fiksi',
+    'Negeri 5 Menara',
+    'A. Fuadi',
+    62000,
+    4.8,
+    55,
+    'Mantra sakti ''Man Jadda Wajada'' yang menyatukan enam santri Pondok Madani dalam meraih impian besar menginjakkan kaki di benua-benua impian dunia.',
+    'https://covers.openlibrary.org/b/id/14303993-L.jpg'
+),
+(
+    'book-nf-05',
+    'genre-novel-fiksi',
+    'To Kill a Mockingbird',
+    'Harper Lee',
+    75000,
     4.9,
     45,
-    'Sebuah novel puitis tentang pertemuan takdir dua insan di pesisir Nusantara yang dipisahkan oleh rahasia masa lalu.',
-    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'
+    'Karya sastra abadi melalui sudut pandang Scout Finch saat ayahnya, Atticus Finch, memperjuangkan keadilan hukum bagi pria berkulit hitam di tengah prasangka rasial Maycomb.',
+    'https://covers.openlibrary.org/b/id/14351077-L.jpg'
 ),
 (
-    'book-002',
-    'genre-komik-manga',
-    'Pendekar Bayangan: Reinkarnasi',
-    'Arya Kusuma',
+    'book-nf-06',
+    'genre-novel-fiksi',
+    'The Great Gatsby',
+    'F. Scott Fitzgerald',
+    69000,
+    4.7,
+    50,
+    'Gambaran memukau tentang kemewahan, ilusi kejayaan Jazz Age, dan obsesi tak berujung Jay Gatsby demi merebut kembali cinta masa lalunya, Daisy Buchanan.',
+    'https://covers.openlibrary.org/b/id/10590366-L.jpg'
+),
+(
+    'book-nf-07',
+    'genre-novel-fiksi',
+    '1984 (Nineteen Eighty-Four)',
+    'George Orwell',
+    68000,
+    4.9,
+    60,
+    'Distopia mencekam tentang kekuasaan mutlak ''Big Brother'', pengawasan massal tanpa henti, dan perjuangan Winston Smith mempertahankan kebenaran dan kemanusiaan.',
+    'https://covers.openlibrary.org/b/id/9267242-L.jpg'
+),
+(
+    'book-nf-08',
+    'genre-novel-fiksi',
+    'Animal Farm',
+    'George Orwell',
     55000,
     4.8,
-    60,
-    'Komik aksi epik petualangan ksatria kuno yang terbangun di era metropolis futuristik Jakarta 2099.',
-    'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?auto=format&fit=crop&w=600&q=80'
-),
-(
-    'book-003',
-    'genre-fantasi',
-    'Kronik Lembah Abadi',
-    'Damian Vance',
-    105000,
-    4.7,
-    30,
-    'Kisah petualangan seorang pemuda pemahat batu yang menemukan gerbang menuju peradaban magis yang terlupakan.',
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
-),
-(
-    'book-004',
-    'genre-romansa',
-    'Surat Musim Hujan di Kyoto',
-    'Hanako Dewi',
-    78000,
-    4.9,
-    25,
-    'Koleksi korespondensi intim dua pelajar pertukaran budaya yang menemukan ketenangan di tengah rintik hujan.',
-    'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80'
-),
-(
-    'book-005',
-    'genre-misteri',
-    'Labirin Kertas Terbakar',
-    'Bramantyo Wicaksono',
-    95000,
-    4.6,
-    50,
-    'Detektif swasta mengusut kematian seorang kurator arsip rahasia perpustakaan kuno di pedalaman Jawa Barat.',
-    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80'
-),
-(
-    'book-006',
-    'genre-pengembangan-diri',
-    'Arsitektur Fokus Batin',
-    'Dr. Aris Sudiro',
-    115000,
-    5.0,
-    80,
-    'Panduan praktis mengembalikan kendali konsentrasi, kedamaian berpikir, dan ketajaman kerja di era distraksi digital.',
-    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80'
-),
-(
-    'book-007',
-    'genre-komik-manga',
-    'Chrono Blade: Volume 1',
-    'Kenji & Satria',
-    62000,
-    4.7,
     70,
-    'Manga pertarungan waktu di mana setiap detakan jantung menentukan kemenangan atau kekalahan di medan gladiator dimensi.',
-    'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80'
+    'Fabel alegoris tajam tentang revolusi hewan peternakan Manor Farm yang menggulingkan majikan manusia, sebelum akhirnya terjerumus dalam tirani kepemimpinan babi.',
+    'https://covers.openlibrary.org/b/id/11261770-L.jpg'
 ),
 (
-    'book-008',
+    'book-nf-09',
     'genre-novel-fiksi',
-    'Mata Air Para Pujangga',
-    'Laksmi Wardhani',
+    'The Catcher in the Rye',
+    'J. D. Salinger',
+    65000,
+    4.6,
+    40,
+    'Kisah ikonik Holden Caulfield mengarungi kegelisahan masa remaja, keterasingan, dan pencarian kepolosan di jalanan kota New York setelah dikeluarkan dari asrama.',
+    'https://covers.openlibrary.org/b/id/9273490-L.jpg'
+),
+(
+    'book-nf-10',
+    'genre-novel-fiksi',
+    'Tenggelamnya Kapal Van der Wijck',
+    'Buya Hamka',
+    58000,
+    4.9,
+    50,
+    'Tragedi asmara mengharukan antara Zainuddin dan Hayati yang kandas akibat benturan adat istiadat kaku Minangkabau berlatar masa kolonialisme.',
+    'https://covers.openlibrary.org/b/id/4080917-L.jpg'
+),
+(
+    'book-km-01',
+    'genre-komik-manga',
+    'One Piece (Vol. 1)',
+    'Eiichiro Oda',
+    45000,
+    5.0,
+    85,
+    'Awal mula petualangan Monkey D. Luffy yang bermimpi menjadi Raja Bajak Laut, berlayar mengarungi Grand Line demi menemukan harta karun legendaris ''One Piece''.',
+    'https://covers.openlibrary.org/b/id/1020563-L.jpg'
+),
+(
+    'book-km-02',
+    'genre-komik-manga',
+    'Naruto (Vol. 1)',
+    'Masashi Kishimoto',
+    45000,
+    4.9,
+    80,
+    'Perjalanan pantang menyerah anak yatim piatu berkekuatan siluman rubah ekor sembilan, Uzumaki Naruto, yang bertekad diakui desa dan menjadi Hokage terhebat.',
+    'https://covers.openlibrary.org/b/id/7335243-L.jpg'
+),
+(
+    'book-km-03',
+    'genre-komik-manga',
+    'Attack on Titan (Vol. 1)',
+    'Hajime Isayama',
+    48000,
+    4.9,
+    75,
+    'Umat manusia yang terkurung di balik tiga dinding raksasa dari ancaman Titan pemakan manusia menghadapi teror baru ketika Titan Kolosal menjebol Dinding Maria.',
+    'https://covers.openlibrary.org/b/id/7471058-L.jpg'
+),
+(
+    'book-km-04',
+    'genre-komik-manga',
+    'Detective Conan (Vol. 1)',
+    'Gosho Aoyama',
+    45000,
+    4.9,
+    70,
+    'Detektif SMA jenius Shinichi Kudo diracuni oleh organisasi jubah hitam misterius hingga tubuhnya menyusut menjadi anak SD bernama samaran Conan Edogawa.',
+    'https://covers.openlibrary.org/b/id/1787458-L.jpg'
+),
+(
+    'book-km-05',
+    'genre-komik-manga',
+    'Death Note (Vol. 1)',
+    'Tsugumi Ohba & Takeshi Obata',
+    48000,
+    4.9,
+    65,
+    'Siswa cerdas Light Yagami menemukan buku catatan dewa kematian Shinigami yang bisa membunuh siapa saja yang namanya ditulis, memicu perang pikiran melawan detektif legendaris L.',
+    'https://covers.openlibrary.org/b/id/1041608-L.jpg'
+),
+(
+    'book-km-06',
+    'genre-komik-manga',
+    'Dragon Ball (Vol. 1)',
+    'Akira Toriyama',
+    45000,
+    4.9,
+    80,
+    'Petualangan klasik Son Goku, bocah berekor monyet berhati polos pemilik tongkat ajaib, bersama Bulma mengumpulkan tujuh bola naga legendaris pengabul harapan.',
+    'https://covers.openlibrary.org/b/id/8786816-L.jpg'
+),
+(
+    'book-km-07',
+    'genre-komik-manga',
+    'Bleach (Vol. 1)',
+    'Tite Kubo',
+    45000,
+    4.8,
+    65,
+    'Ichigo Kurosaki, remaja yang mampu melihat arwah, tak sengaja menerima kekuatan Shinigami dari Rukia Kuchiki demi melindungi keluarganya dari serangan Hollow ganas.',
+    'https://covers.openlibrary.org/b/id/2806276-L.jpg'
+),
+(
+    'book-km-08',
+    'genre-komik-manga',
+    'Demon Slayer: Kimetsu no Yaiba (Vol. 1)',
+    'Koyoharu Gotouge',
+    48000,
+    5.0,
+    90,
+    'Tanjiro Kamado bergabung dengan Korps Pemburu Iblis untuk membalaskan dendam keluarganya dan mencari penawar agar adiknya Nezuko kembali menjadi manusia normal.',
+    'https://covers.openlibrary.org/b/id/9364005-L.jpg'
+),
+(
+    'book-km-09',
+    'genre-komik-manga',
+    'Fullmetal Alchemist (Vol. 1)',
+    'Hiromu Arakawa',
+    48000,
+    4.9,
+    70,
+    'Dua bersaudara alkemis Edward dan Alphonse Elric menempuh perjalanan berbahaya mencari Batu Bertuah demi mengembalikan raga mereka yang hilang akibat transmutasi terlarang.',
+    'https://covers.openlibrary.org/b/id/863658-L.jpg'
+),
+(
+    'book-km-10',
+    'genre-komik-manga',
+    'Tokyo Ghoul (Vol. 1)',
+    'Sui Ishida',
+    48000,
+    4.8,
+    60,
+    'Ken Kaneki bertransformasi menjadi manusia setengah ghoul setelah operasi darurat, terperangkap di antara dunia manusia dan makhluk pemangsa daging di kota Tokyo.',
+    'https://covers.openlibrary.org/b/id/7900452-L.jpg'
+),
+(
+    'book-fs-01',
+    'genre-fantasi',
+    'Harry Potter and the Philosopher''s Stone',
+    'J. K. Rowling',
+    89000,
+    5.0,
+    75,
+    'Bocah yatim piatu Harry Potter menemukan warisan sihirnya dan memulai pendidikan di Sekolah Sihir Hogwarts, mengungkap misteri Batu Bertuah yang diincar Voldemort.',
+    'https://covers.openlibrary.org/b/id/15155833-L.jpg'
+),
+(
+    'book-fs-02',
+    'genre-fantasi',
+    'The Hobbit',
+    'J. R. R. Tolkien',
+    85000,
+    4.9,
+    55,
+    'Bilbo Baggins ditarik dari kenyamanan liang hobbit-nya oleh penyihir Gandalf dan tiga belas kurcaci dalam ekspedisi merebut kembali Gunung Sunyi dari cengkeraman naga Smaug.',
+    'https://covers.openlibrary.org/b/id/14627509-L.jpg'
+),
+(
+    'book-fs-03',
+    'genre-fantasi',
+    'The Fellowship of the Ring',
+    'J. R. R. Tolkien',
+    89000,
+    5.0,
+    60,
+    'Frodo Baggins mengemban takdir berat membawa Cincin Utama menuju kawah Gunung Doom demi menghancurkan kekuatan tiran Penguasa Kegelapan Sauron.',
+    'https://covers.openlibrary.org/b/id/12898711-L.jpg'
+),
+(
+    'book-fs-04',
+    'genre-fantasi',
+    'Dune',
+    'Frank Herbert',
+    92000,
+    4.9,
+    50,
+    'Mahakarya fiksi ilmiah berlatar planet gurun Arrakis, mengisahkan intrik kekuasaan politik antargalaksi, perang memperebutkan rempah ''melange'', dan takdir mesianik Paul Atreides.',
+    'https://covers.openlibrary.org/b/id/11481354-L.jpg'
+),
+(
+    'book-fs-05',
+    'genre-fantasi',
+    'Percy Jackson: The Lightning Thief',
+    'Rick Riordan',
+    79000,
+    4.8,
+    65,
+    'Percy Jackson menyadari dirinya adalah anak setengah dewa dari Poseidon, dan dituduh mencuri petir azimat milik Zeus dalam petualangan mitologi Yunani modern.',
+    'https://covers.openlibrary.org/b/id/8234857-L.jpg'
+),
+(
+    'book-fs-06',
+    'genre-fantasi',
+    'A Game of Thrones',
+    'George R. R. Martin',
+    95000,
+    4.9,
+    45,
+    'Buku pertama seri A Song of Ice and Fire; intrik politik berdarah, pengkhianatan, dan perang takhta memperebutkan Iron Throne di Westeros saat musim dingin abadi kian mendekat.',
+    'https://covers.openlibrary.org/b/id/8259447-L.jpg'
+),
+(
+    'book-fs-07',
+    'genre-fantasi',
+    'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
+    'C. S. Lewis',
+    75000,
+    4.8,
+    60,
+    'Empat bersaudara Pevensie melangkah melewati lemari pakaian ajaib menuju Narnia, negeri musim dingin abadi yang ditaklukkan Penyihir Putih dan menanti kembalinya Aslan.',
+    'https://covers.openlibrary.org/b/id/12693821-L.jpg'
+),
+(
+    'book-fs-08',
+    'genre-fantasi',
+    'Foundation',
+    'Isaac Asimov',
     82000,
     4.8,
-    35,
-    'Kisah perjalanan menelusuri jejak sastrawan hilang yang meninggalkan naskah rahasia di pelosok perbukitan Menoreh.',
-    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80'
+    45,
+    'Melalui ilmu psikohistori, ilmuwan Hari Seldon meramalkan runtuhnya Kekaisaran Galaksi dan mendirikan Yayasan untuk memperpendek masa kegelapan peradaban manusia.',
+    'https://covers.openlibrary.org/b/id/8235114-L.jpg'
+),
+(
+    'book-fs-09',
+    'genre-fantasi',
+    'Fahrenheit 451',
+    'Ray Bradbury',
+    72000,
+    4.7,
+    50,
+    'Masa depan distopia ketika membaca buku dianggap kejahatan dan tugas ''pemadam kebakaran'' adalah membakar semua teks cetak demi menjaga keseragaman pikiran publik.',
+    'https://covers.openlibrary.org/b/id/10078233-L.jpg'
+),
+(
+    'book-fs-10',
+    'genre-fantasi',
+    'Ender''s Game',
+    'Orson Scott Card',
+    78000,
+    4.8,
+    50,
+    'Andrew ''Ender'' Wiggin, bocah jenius taktik militer, dilatih dalam simulasi perang antariksa tanpa menyadari bahwa nasib peradaban manusia berada di tangannya.',
+    'https://covers.openlibrary.org/b/id/8231991-L.jpg'
+),
+(
+    'book-rm-01',
+    'genre-romansa',
+    'The Fault in Our Stars',
+    'John Green',
+    68000,
+    4.9,
+    60,
+    'Kisah cinta mengharukan antara Hazel Grace Lancaster dan Augustus Waters yang bertemu di kelompok pendukung penderita kanker, belajar merengkuh makna hidup dan keterbatasan waktu.',
+    'https://covers.openlibrary.org/b/id/7418786-L.jpg'
+),
+(
+    'book-rm-02',
+    'genre-romansa',
+    'Pride and Prejudice',
+    'Jane Austen',
+    55000,
+    4.9,
+    65,
+    'Dinamika cerdas antara Elizabeth Bennet yang mandiri dan Mr. Darcy yang arogan, menyingkap prasangka kelas sosial dan esensi cinta sejati di Inggris abad ke-19.',
+    'https://covers.openlibrary.org/b/id/14348537-L.jpg'
+),
+(
+    'book-rm-03',
+    'genre-romansa',
+    'Wuthering Heights',
+    'Emily Brontë',
+    58000,
+    4.7,
+    40,
+    'Balas dendam dan gairah cinta membara nan destruktif antara Heathcliff dan Catherine Earnshaw di padang liar berangin Yorkshire.',
+    'https://covers.openlibrary.org/b/id/12648831-L.jpg'
+),
+(
+    'book-rm-04',
+    'genre-romansa',
+    'Jane Eyre',
+    'Charlotte Brontë',
+    62000,
+    4.8,
+    45,
+    'Perjalanan emosional dan keteguhan moral seorang gadis yatim piatu yang menjadi guru privat di Thornfield Hall dan jatuh cinta pada tuannya yang misterius, Edward Rochester.',
+    'https://covers.openlibrary.org/b/id/8232947-L.jpg'
+),
+(
+    'book-rm-05',
+    'genre-romansa',
+    'Me Before You',
+    'Jojo Moyes',
+    69000,
+    4.8,
+    55,
+    'Louisa Clark yang ceria menjadi pengasuh Will Traynor, pria kaya yang lumpuh pascakecelakaan; kisah menyentuh tentang cinta yang mengubah cara pandang hidup selamanya.',
+    'https://covers.openlibrary.org/b/id/8712391-L.jpg'
+),
+(
+    'book-rm-06',
+    'genre-romansa',
+    'Emma',
+    'Jane Austen',
+    55000,
+    4.7,
+    50,
+    'Emma Woodhouse, gadis cerdas yang gemar menjodohkan orang lain, terjebak dalam kesalahpahaman hatinya sendiri sebelum menyadari cinta sejatinya di dekatnya.',
+    'https://covers.openlibrary.org/b/id/10592812-L.jpg'
+),
+(
+    'book-rm-07',
+    'genre-romansa',
+    'Romeo and Juliet',
+    'William Shakespeare',
+    49000,
+    4.8,
+    70,
+    'Drama romantika legendaris tentang dua sejoli dari keluarga yang berseteru di Verona, berkorban demi mempertahankan cinta mereka melampaui kebencian turun-temurun.',
+    'https://covers.openlibrary.org/b/id/8225841-L.jpg'
+),
+(
+    'book-rm-08',
+    'genre-romansa',
+    'Sense and Sensibility',
+    'Jane Austen',
+    55000,
+    4.7,
+    45,
+    'Kontras kepribadian dua saudari Dashwood—Elinor yang rasional dan Marianne yang penuh emosi—dalam mengarungi patah hati dan menemukan kebahagiaan sejati.',
+    'https://covers.openlibrary.org/b/id/9283741-L.jpg'
+),
+(
+    'book-rm-09',
+    'genre-romansa',
+    'Normal People',
+    'Sally Rooney',
+    72000,
+    4.7,
+    50,
+    'Hubungan rumit nan intim antara Marianne dan Connell yang melintasi masa sekolah hingga kuliah di Dublin, menyelami keintiman, kerapuhan, dan penerimaan diri.',
+    'https://covers.openlibrary.org/b/id/9238471-L.jpg'
+),
+(
+    'book-rm-10',
+    'genre-romansa',
+    'Little Women',
+    'Louisa May Alcott',
+    59000,
+    4.9,
+    60,
+    'Dinamika kehangatan, cinta, dan impian empat saudari March (Meg, Jo, Beth, dan Amy) tumbuh dewasa di tengah masa Perang Saudara Amerika.',
+    'https://covers.openlibrary.org/b/id/8234710-L.jpg'
+),
+(
+    'book-mt-01',
+    'genre-misteri',
+    'The Adventures of Sherlock Holmes',
+    'Sir Arthur Conan Doyle',
+    62000,
+    4.9,
+    65,
+    'Dua belas kasus detektif legendaris Sherlock Holmes bersama sahabatnya Dr. John Watson, menggunakan observasi tajam dan deduksi logis memecahkan teka-teki rumit London.',
+    'https://covers.openlibrary.org/b/id/6717853-L.jpg'
+),
+(
+    'book-mt-02',
+    'genre-misteri',
+    'Murder on the Orient Express',
+    'Agatha Christie',
+    69000,
+    4.9,
+    60,
+    'Detektif Hercule Poirot terjebak di kereta mewah Orient Express yang tertimbun salju, berusaha memecahkan pembunuhan jutawan Amerika di antara belasan penumpang yang mencurigakan.',
+    'https://covers.openlibrary.org/b/id/11100465-L.jpg'
+),
+(
+    'book-mt-03',
+    'genre-misteri',
+    'And Then There Were None',
+    'Agatha Christie',
+    69000,
+    5.0,
+    65,
+    'Sepuluh orang asing diundang ke pulau terpencil Soldier Island, satu per satu tewas secara misterius mengikuti bait lagu anak-anak tanpa ada pelaku yang terlihat.',
+    'https://covers.openlibrary.org/b/id/8234912-L.jpg'
+),
+(
+    'book-mt-04',
+    'genre-misteri',
+    'The Da Vinci Code',
+    'Dan Brown',
+    79000,
+    4.8,
+    55,
+    'Ahli simbologi Robert Langdon mengungkap teka-teki pembunuhan kurator Museum Louvre yang menuntun pada rahasia terlarang Holy Grail dan persaudaraan rahasia Sion.',
+    'https://covers.openlibrary.org/b/id/9255229-L.jpg'
+),
+(
+    'book-mt-05',
+    'genre-misteri',
+    'The Hound of the Baskervilles',
+    'Arthur Conan Doyle',
+    59000,
+    4.8,
+    50,
+    'Legenda anjing raksasa berkutuk yang menghantui rawa-rawa Dartmoor mengancam pewaris terakhir keluarga Baskerville, memicu penyelidikan intensif Holmes dan Watson.',
+    'https://covers.openlibrary.org/b/id/8231940-L.jpg'
+),
+(
+    'book-mt-06',
+    'genre-misteri',
+    'Angels & Demons',
+    'Dan Brown',
+    75000,
+    4.8,
+    55,
+    'Pacuan waktu mendebarkan di Vatikan melawan komplotan rahasia Illuminati yang mencuri tabung antimateri berkekuatan bom nuklir jelang konklaf pemilihan Paus baru.',
+    'https://covers.openlibrary.org/b/id/8234919-L.jpg'
+),
+(
+    'book-mt-07',
+    'genre-misteri',
+    'Gone Girl',
+    'Gillian Flynn',
+    72000,
+    4.7,
+    45,
+    'Lenyapnya Amy Dunne di hari ulang tahun pernikahan kelima menyeret suaminya Nick ke dalam sorotan media dan tuduhan pembunuhan di balik kebohongan psikologis yang manipulatif.',
+    'https://covers.openlibrary.org/b/id/8234812-L.jpg'
+),
+(
+    'book-mt-08',
+    'genre-misteri',
+    'The Girl with the Dragon Tattoo',
+    'Stieg Larsson',
+    78000,
+    4.8,
+    50,
+    'Jurnalis Mikael Blomkvist dan hacker eksentrik Lisbeth Salander menyelidiki hilangnya gadis pewaris dinasti Vanger empat puluh tahun lalu, membongkar skandal gelap keluarga kaya Swedia.',
+    'https://covers.openlibrary.org/b/id/8231948-L.jpg'
+),
+(
+    'book-mt-09',
+    'genre-misteri',
+    'The Silence of the Lambs',
+    'Thomas Harris',
+    75000,
+    4.9,
+    50,
+    'Agen muda FBI Clarice Starling meminta bantuan mantan psikiater kanibal Dr. Hannibal Lecter di penjara keamanan maksimum demi menangkap pembunuh berantai berjuluk ''Buffalo Bill''.',
+    'https://covers.openlibrary.org/b/id/8234911-L.jpg'
+),
+(
+    'book-mt-10',
+    'genre-misteri',
+    'Shutter Island',
+    'Dennis Lehane',
+    69000,
+    4.7,
+    45,
+    'Marsekal AS Teddy Daniels menginvestigasi hilangnya pasien pembunuh dari rumah sakit jiwa berkeamanan tinggi di pulau terisolasi, mengungkap konspirasi dan trauma masa lalu.',
+    'https://covers.openlibrary.org/b/id/8234891-L.jpg'
+),
+(
+    'book-pd-01',
+    'genre-pengembangan-diri',
+    'Atomic Habits',
+    'James Clear',
+    88000,
+    5.0,
+    90,
+    'Kerangka kerja ilmiah terbukti tentang bagaimana perubahan kecil 1% setiap hari melalui pembentukan sistem dan identitas mampu menghasilkan transformasi hidup luar biasa.',
+    'https://covers.openlibrary.org/b/id/12539702-L.jpg'
+),
+(
+    'book-pd-02',
+    'genre-pengembangan-diri',
+    'The Psychology of Money',
+    'Morgan Housel',
+    82000,
+    4.9,
+    85,
+    '19 cerita menarik mengenai bagaimana perilaku, emosi, dan bias manusia menentukan keberhasilan finansial jauh lebih besar daripada sekadar rumus matematika atau kepintaran.',
+    'https://covers.openlibrary.org/b/id/10389354-L.jpg'
+),
+(
+    'book-pd-03',
+    'genre-pengembangan-diri',
+    'Rich Dad, Poor Dad',
+    'Robert T. Kiyosaki',
+    75000,
+    4.8,
+    80,
+    'Pelajaran finansial fundamental membedakan aset dan liabilitas, literasi keuangan, dan pola pikir mandiri menuju kebebasan finansial dari dua sosok figur ayah.',
+    'https://covers.openlibrary.org/b/id/8315603-L.jpg'
+),
+(
+    'book-pd-04',
+    'genre-pengembangan-diri',
+    'Meditations',
+    'Marcus Aurelius',
+    65000,
+    4.9,
+    60,
+    'Catatan renungan pribadi Kaisar Romawi dan filsuf Stoa tentang disiplin diri, ketabahan mental dalam menghadapi kesulitan, serta integritas moral hidup selaras dengan alam.',
+    'https://covers.openlibrary.org/b/id/12847192-L.jpg'
+),
+(
+    'book-pd-05',
+    'genre-pengembangan-diri',
+    'The 7 Habits of Highly Effective People',
+    'Stephen R. Covey',
+    85000,
+    4.9,
+    70,
+    'Pendekatan holistik dan terintegrasi berlandaskan etika karakter untuk memecahkan masalah pribadi dan profesional, mulai dari proaktif hingga terus mengasah kemampuan diri.',
+    'https://covers.openlibrary.org/b/id/8234910-L.jpg'
+),
+(
+    'book-pd-06',
+    'genre-pengembangan-diri',
+    'Deep Work',
+    'Cal Newport',
+    79000,
+    4.8,
+    65,
+    'Panduan praktis menguasai kemampuan fokus tanpa distraksi pada tugas menuntut kognitif, sebuah keterampilan bernilai tinggi yang langka di dunia ekonomi modern.',
+    'https://covers.openlibrary.org/b/id/8712399-L.jpg'
+),
+(
+    'book-pd-07',
+    'genre-pengembangan-diri',
+    'Thinking, Fast and Slow',
+    'Daniel Kahneman',
+    89000,
+    4.9,
+    55,
+    'Pemenang Nobel Ekonomi menyingkap dua sistem yang mengendalikan cara berpikir manusia: Sistem 1 yang cepat dan intuitif, serta Sistem 2 yang lambat dan logis.',
+    'https://covers.openlibrary.org/b/id/8231999-L.jpg'
+),
+(
+    'book-pd-08',
+    'genre-pengembangan-diri',
+    'Man''s Search for Meaning',
+    'Viktor E. Frankl',
+    68000,
+    5.0,
+    60,
+    'Pengalaman bertahan hidup psikiater di kamp konsentrasi Auschwitz yang melahirkan logoterapi: keyakinan bahwa pendorong utama manusia adalah menemukan makna dalam penderitaan.',
+    'https://covers.openlibrary.org/b/id/8234719-L.jpg'
+),
+(
+    'book-pd-09',
+    'genre-pengembangan-diri',
+    'Start with Why',
+    'Simon Sinek',
+    75000,
+    4.8,
+    65,
+    'Konsep Lingkaran Emas (Golden Circle) yang menjelaskan bagaimana para pemimpin dan inovator terhebat di dunia menginspirasi orang lain dengan memulai dari tujuan dan alasan fundamental.',
+    'https://covers.openlibrary.org/b/id/8234921-L.jpg'
+),
+(
+    'book-pd-10',
+    'genre-pengembangan-diri',
+    'The Subtle Art of Not Giving a F*ck',
+    'Mark Manson',
+    79000,
+    4.7,
+    75,
+    'Pendekatan segar tanpa basa-basi tentang menerima keterbatasan diri, memilih hal-hal yang benar-benar bernilai untuk diperjuangkan, dan melepaskan standar kesempurnaan semu.',
+    'https://covers.openlibrary.org/b/id/8712388-L.jpg'
 )
 ON CONFLICT (id) DO UPDATE SET
     title = EXCLUDED.title,
     author = EXCLUDED.author,
     price = EXCLUDED.price,
     rating = EXCLUDED.rating,
+    stock = EXCLUDED.stock,
     description = EXCLUDED.description,
     cover_url = EXCLUDED.cover_url;

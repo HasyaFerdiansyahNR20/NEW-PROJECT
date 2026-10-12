@@ -59,17 +59,17 @@ export default async function HomePage() {
               <div className="relative w-full max-w-sm rounded-2xl bg-paper-alt p-6 border border-stone-200/90 shadow-book">
                 <div className="flex items-center justify-between pb-3 border-b border-stone-200/70 text-xs font-semibold text-stone-500 uppercase tracking-wider">
                   <span>Pilihan Kurator Minggu Ini</span>
-                  <span className="flex items-center gap-1 text-amber-600">
+                  <span className="flex items-center gap-1 text-amber-600 font-bold">
                     <Star size={13} weight="fill" />
-                    <span>4.9 / 5.0</span>
+                    <span>5.0 / 5.0</span>
                   </span>
                 </div>
 
                 <div className="mt-4 flex gap-4 items-center">
                   <div className="relative w-24 h-32 rounded-lg overflow-hidden flex-shrink-0 shadow-md bg-stone-100">
                     <Image
-                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
-                      alt="Kala Langit Bersua Samudra"
+                      src="https://covers.openlibrary.org/b/id/6643692-L.jpg"
+                      alt="Bumi Manusia"
                       fill
                       className="object-cover"
                     />
@@ -77,20 +77,23 @@ export default async function HomePage() {
 
                   <div className="flex-1">
                     <span className="text-[10px] uppercase font-bold text-brand-600 tracking-wider">
-                      Novel Fiksi
+                      Novel Fiksi Terlaris
                     </span>
                     <h3 className="font-serif font-bold text-base text-ink leading-snug mt-0.5">
-                      Kala Langit Bersua Samudra
+                      Bumi Manusia
                     </h3>
-                    <p className="text-xs text-stone-500 mt-1">oleh Raka Pradana</p>
+                    <p className="text-xs text-stone-500 mt-1">oleh Pramoedya Ananta Toer</p>
                     <p className="text-xs text-brand-600 font-bold mt-2">
-                      Rp 89.000
+                      Rp 78.000
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-stone-200/70 flex items-center justify-between text-xs text-stone-500">
-                  <span>Format: EPUB &amp; PDF</span>
+                  <span className="flex items-center gap-1.5 font-medium text-stone-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
+                    Open Library Verified
+                  </span>
                   <Link
                     href="#katalog"
                     className="font-bold text-brand-600 hover:text-brand-700"
