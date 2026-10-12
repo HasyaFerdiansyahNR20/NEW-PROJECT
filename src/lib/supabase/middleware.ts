@@ -56,23 +56,10 @@ export async function updateSession(request: NextRequest) {
 
   const isAdmin = isAdminUser(user);
 
-  if (user && isAuthRoute) {
-    const url = request.nextUrl.clone();
-    url.pathname = isAdmin ? '/admin' : '/dashboard';
-    return NextResponse.redirect(url);
-  }
-
   // Prevent non-admin users from accessing /admin
   if (user && isAdminRoute && !isAdmin) {
     const url = request.nextUrl.clone();
     url.pathname = '/dashboard';
-    return NextResponse.redirect(url);
-  }
-
-  // Prevent admin users from accessing customer dashboard /dashboard, route them directly to /admin
-  if (user && isDashboardRoute && isAdmin) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/admin';
     return NextResponse.redirect(url);
   }
 

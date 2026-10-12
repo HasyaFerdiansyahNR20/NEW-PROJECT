@@ -12,6 +12,7 @@ import {
   MagnifyingGlass,
   SignIn,
   ShieldCheck,
+  SignOut,
 } from '@phosphor-icons/react';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/useAuth';
@@ -21,7 +22,7 @@ import { Button } from '@/components/ui/button';
 export function Navbar() {
   const pathname = usePathname();
   const { getTotalItems, toggleCart } = useCart();
-  const { user } = useAuth();
+  const { user, supabase } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const totalItems = getTotalItems();
 
@@ -81,25 +82,40 @@ export function Navbar() {
 
           {/* User Auth or Dashboard */}
           {user ? (
-            isAdminUser(user) ? (
-              <Link href="/admin">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="hidden sm:inline-flex bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200"
-                >
-                  <ShieldCheck size={16} weight="fill" className="text-amber-600" />
-                  <span>Dashboard Admin</span>
-                </Button>
-              </Link>
-            ) : (
-              <Link href="/dashboard">
-                <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
-                  <User size={16} weight="bold" />
-                  <span>Dashboard</span>
-                </Button>
-              </Link>
-            )
+            <div className="flex items-center gap-2">
+              {isAdminUser(user) ? (
+                <Link href="/admin">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="hidden sm:inline-flex bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200"
+                  >
+                    <ShieldCheck size={16} weight="fill" className="text-amber-600" />
+                    <span>Dashboard Admin</span>
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/dashboard">
+                  <Button variant="secondary" size="sm" className="hidden sm:inline-flex">
+                    <User size={16} weight="bold" />
+                    <span>Dashboard Pembaca</span>
+                  </Button>
+                </Link>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={async () => {
+                  await supabase.auth.signOut();
+                  window.location.href = '/login';
+                }}
+                className="hidden sm:inline-flex text-stone-500 hover:text-red-600 hover:bg-red-50 text-xs px-2.5"
+                title="Keluar dari akun saat ini"
+              >
+                <SignOut size={16} weight="bold" />
+                <span>Keluar</span>
+              </Button>
+            </div>
           ) : (
             <div className="hidden sm:flex items-center gap-2">
               <Link href="/login">
@@ -144,25 +160,40 @@ export function Navbar() {
           </nav>
           <div className="pt-2 border-t border-stone-200 flex flex-col gap-2">
             {user ? (
-              isAdminUser(user) ? (
-                <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="w-full bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200 justify-start"
-                  >
-                    <ShieldCheck size={16} weight="fill" className="text-amber-600" />
-                    <span>Dashboard Admin (CRUD)</span>
-                  </Button>
-                </Link>
-              ) : (
-                <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="secondary" size="sm" className="w-full">
-                    <User size={16} weight="bold" />
-                    <span>Dashboard Akun</span>
-                  </Button>
-                </Link>
-              )
+              <div className="space-y-2">
+                {isAdminUser(user) ? (
+                  <Link href="/admin" onClick={() => setMobileMenuOpen(false)}>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="w-full bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-200 justify-start"
+                    >
+                      <ShieldCheck size={16} weight="fill" className="text-amber-600" />
+                      <span>Dashboard Admin (CRUD)</span>
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="secondary" size="sm" className="w-full justify-start">
+                      <User size={16} weight="bold" />
+                      <span>Dashboard Akun Pembaca</span>
+                    </Button>
+                  </Link>
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={async () => {
+                    setMobileMenuOpen(false);
+                    await supabase.auth.signOut();
+                    window.location.href = '/login';
+                  }}
+                  className="w-full text-stone-600 hover:text-red-600 hover:bg-red-50 justify-start text-xs font-semibold"
+                >
+                  <SignOut size={16} weight="bold" />
+                  <span>Keluar Akun ({user.email})</span>
+                </Button>
+              </div>
             ) : (
               <>
                 <Link href="/login" onClick={() => setMobileMenuOpen(false)}>

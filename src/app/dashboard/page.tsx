@@ -13,10 +13,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();
-
-  if (isAdminUser(user)) {
-    redirect('/admin');
-  }
+  const isAdmin = isAdminUser(user);
 
   // If user is not yet logged in or demo mode, provide sample data
   const userId = user?.id || 'demo-user-id';
@@ -31,6 +28,26 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-8">
+      {/* Admin Quick Switch Notice if logged in as Admin */}
+      {isAdmin && (
+        <div className="rounded-xl bg-amber-50 border border-amber-200/80 p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+          <div>
+            <span className="text-xs font-bold text-amber-900 block">
+              Akun Administrator Toko Terdeteksi
+            </span>
+            <p className="text-[11px] text-amber-700">
+              Anda sedang melihat tampilan Ruang Baca Pelanggan. Untuk mengelola katalog buku dan harga, kunjungi Panel CRUD Admin.
+            </p>
+          </div>
+          <Link
+            href="/admin"
+            className="text-xs font-bold text-amber-900 bg-amber-200/80 hover:bg-amber-300 px-3.5 py-2 rounded-xl transition-colors flex-shrink-0"
+          >
+            Buka Panel CRUD Admin &rarr;
+          </Link>
+        </div>
+      )}
+
       {/* Welcome Banner */}
       <div className="rounded-2xl bg-white p-6 sm:p-8 border border-stone-200/90 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
