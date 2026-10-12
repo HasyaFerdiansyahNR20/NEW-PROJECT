@@ -2,10 +2,9 @@ import { getCurrentUser } from '@/server/actions/auth-actions';
 import { getUserOrders } from '@/server/services/order-service';
 import { FALLBACK_BOOKS } from '@/server/services/book-service';
 import { ProfileForm } from '@/components/forms/profile-form';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Books, ShoppingBag, WhatsappLogo, CheckCircle, Clock } from '@phosphor-icons/react/dist/ssr';
+import { Card } from '@/components/ui/card';
+import { Books, ShoppingBag } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
-import { formatRupiah, formatDateIndo } from '@/lib/utils';
 import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
@@ -100,61 +99,20 @@ export default async function DashboardPage() {
         </div>
       </Card>
 
-      {/* Profile & WhatsApp Settings */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="p-6 bg-white border-stone-200">
-          <h2 className="text-base font-bold text-ink mb-1">Pengaturan Profil</h2>
-          <p className="text-xs text-stone-500 mb-4 pb-2 border-b border-stone-100">
-            Kelola identitas dan nomor WhatsApp untuk notifikasi pesanan.
-          </p>
+      {/* Profile Settings */}
+      <Card className="p-6 sm:p-8 bg-white border-stone-200 max-w-2xl">
+        <h2 className="text-lg font-bold text-ink mb-1">Pengaturan Profil</h2>
+        <p className="text-xs text-stone-500 mb-6 pb-3 border-b border-stone-100">
+          Kelola identitas akun dan nomor WhatsApp Anda untuk kebutuhan transaksi.
+        </p>
 
-          <ProfileForm
-            userId={userId}
-            email={email}
-            initialFullName={fullName}
-            initialPhoneNumber={phoneNumber}
-          />
-        </Card>
-
-        {/* WhatsApp Notification Log Status */}
-        <Card className="p-6 bg-white border-stone-200 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <WhatsappLogo size={20} weight="fill" className="text-emerald-600" />
-              <h2 className="text-base font-bold text-ink">Status WhatsApp Gateway</h2>
-            </div>
-            <p className="text-xs text-stone-500 mb-4 pb-2 border-b border-stone-100">
-              Integrasi gateway Fonnte / Wablas untuk notifikasi pesanan real-time.
-            </p>
-
-            <div className="space-y-3">
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-emerald-50/70 border border-emerald-200">
-                <CheckCircle size={20} weight="fill" className="text-emerald-600 flex-shrink-0 mt-0.5" />
-                <div className="text-xs">
-                  <p className="font-semibold text-emerald-900">Gateway Siap &amp; Terhubung</p>
-                  <p className="text-emerald-700 mt-0.5">
-                    Nomor WhatsApp aktif Anda: <strong className="font-mono">{phoneNumber}</strong>
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-3 rounded-xl bg-paper border border-stone-200 text-xs space-y-1.5">
-                <p className="font-semibold text-ink">Notifikasi Terbaru:</p>
-                <p className="text-stone-600 leading-relaxed italic">
-                  &ldquo;Halo {fullName}! Pesanan pembelian novel digital Anda telah berhasil dikonfirmasi. Akses baca telah tersedia.&rdquo;
-                </p>
-                <span className="text-[10px] text-stone-400 block pt-1">
-                  Status: Terkirim (200 OK)
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-4 mt-4 border-t border-stone-100 text-[11px] text-stone-500">
-            Catatan retensi: Seluruh audit log transaksi disimpan selama 5 tahun sesuai kepatuhan PRD.
-          </div>
-        </Card>
-      </div>
+        <ProfileForm
+          userId={userId}
+          email={email}
+          initialFullName={fullName}
+          initialPhoneNumber={phoneNumber}
+        />
+      </Card>
     </div>
   );
 }
