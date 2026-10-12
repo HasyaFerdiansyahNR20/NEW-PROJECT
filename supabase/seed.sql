@@ -24,7 +24,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     50,
     'Kisah monumental Minke, pribumi cerdas di era kolonial Hindia Belanda yang memperjuangkan martabat dan cintanya pada Annelies Mellema di tengah diskriminasi feodal dan kolonial.',
-    'https://covers.openlibrary.org/b/id/6643692-L.jpg'
+    '/covers/book-nf-01.jpg'
 ),
 (
     'book-nf-02',
@@ -35,7 +35,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     65,
     'Perjuangan sepuluh anak di Belitung bersama dua guru berhati mulia untuk menimba ilmu di sekolah yang hampir roboh, menyalakan lentera harapan dan persahabatan.',
-    'https://covers.openlibrary.org/b/id/7079796-L.jpg'
+    '/covers/book-nf-02.jpg'
 ),
 (
     'book-nf-03',
@@ -46,7 +46,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     40,
     'Epik realisme magis tentang Dewi Ayu, pelacur legendaris di Halimunda, merangkum sejarah kelam perang, kutukan keluarga, dan pergulatan bangsa melalui satire tajam.',
-    'https://covers.openlibrary.org/b/id/13903116-L.jpg'
+    '/covers/book-nf-03.jpg'
 ),
 (
     'book-nf-04',
@@ -57,7 +57,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     55,
     'Mantra sakti ''Man Jadda Wajada'' yang menyatukan enam santri Pondok Madani dalam meraih impian besar menginjakkan kaki di benua-benua impian dunia.',
-    'https://covers.openlibrary.org/b/id/14303993-L.jpg'
+    '/covers/book-nf-04.jpg'
 ),
 (
     'book-nf-05',
@@ -68,7 +68,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     45,
     'Karya sastra abadi melalui sudut pandang Scout Finch saat ayahnya, Atticus Finch, memperjuangkan keadilan hukum bagi pria berkulit hitam di tengah prasangka rasial Maycomb.',
-    'https://covers.openlibrary.org/b/id/14351077-L.jpg'
+    '/covers/book-nf-05.jpg'
 ),
 (
     'book-nf-06',
@@ -79,7 +79,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     50,
     'Gambaran memukau tentang kemewahan, ilusi kejayaan Jazz Age, dan obsesi tak berujung Jay Gatsby demi merebut kembali cinta masa lalunya, Daisy Buchanan.',
-    'https://covers.openlibrary.org/b/id/10590366-L.jpg'
+    '/covers/book-nf-06.jpg'
 ),
 (
     'book-nf-07',
@@ -90,7 +90,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     60,
     'Distopia mencekam tentang kekuasaan mutlak ''Big Brother'', pengawasan massal tanpa henti, dan perjuangan Winston Smith mempertahankan kebenaran dan kemanusiaan.',
-    'https://covers.openlibrary.org/b/id/9267242-L.jpg'
+    '/covers/book-nf-07.jpg'
 ),
 (
     'book-nf-08',
@@ -101,7 +101,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     70,
     'Fabel alegoris tajam tentang revolusi hewan peternakan Manor Farm yang menggulingkan majikan manusia, sebelum akhirnya terjerumus dalam tirani kepemimpinan babi.',
-    'https://covers.openlibrary.org/b/id/11261770-L.jpg'
+    '/covers/book-nf-08.jpg'
 ),
 (
     'book-nf-09',
@@ -112,7 +112,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.6,
     40,
     'Kisah ikonik Holden Caulfield mengarungi kegelisahan masa remaja, keterasingan, dan pencarian kepolosan di jalanan kota New York setelah dikeluarkan dari asrama.',
-    'https://covers.openlibrary.org/b/id/9273490-L.jpg'
+    '/covers/book-nf-09.jpg'
 ),
 (
     'book-nf-10',
@@ -123,7 +123,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     50,
     'Tragedi asmara mengharukan antara Zainuddin dan Hayati yang kandas akibat benturan adat istiadat kaku Minangkabau berlatar masa kolonialisme.',
-    'https://covers.openlibrary.org/b/id/4080917-L.jpg'
+    '/covers/book-nf-10.jpg'
 ),
 (
     'book-km-01',
@@ -134,7 +134,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     85,
     'Awal mula petualangan Monkey D. Luffy yang bermimpi menjadi Raja Bajak Laut, berlayar mengarungi Grand Line demi menemukan harta karun legendaris ''One Piece''.',
-    'https://covers.openlibrary.org/b/id/1020563-L.jpg'
+    '/covers/book-km-01.jpg'
 ),
 (
     'book-km-02',
@@ -145,7 +145,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     80,
     'Perjalanan pantang menyerah anak yatim piatu berkekuatan siluman rubah ekor sembilan, Uzumaki Naruto, yang bertekad diakui desa dan menjadi Hokage terhebat.',
-    'https://covers.openlibrary.org/b/id/7335243-L.jpg'
+    '/covers/book-km-02.jpg'
 ),
 (
     'book-km-03',
@@ -156,7 +156,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     75,
     'Umat manusia yang terkurung di balik tiga dinding raksasa dari ancaman Titan pemakan manusia menghadapi teror baru ketika Titan Kolosal menjebol Dinding Maria.',
-    'https://covers.openlibrary.org/b/id/7471058-L.jpg'
+    '/covers/book-km-03.jpg'
 ),
 (
     'book-km-04',
@@ -167,7 +167,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     70,
     'Detektif SMA jenius Shinichi Kudo diracuni oleh organisasi jubah hitam misterius hingga tubuhnya menyusut menjadi anak SD bernama samaran Conan Edogawa.',
-    'https://covers.openlibrary.org/b/id/1787458-L.jpg'
+    '/covers/book-km-04.jpg'
 ),
 (
     'book-km-05',
@@ -178,7 +178,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     65,
     'Siswa cerdas Light Yagami menemukan buku catatan dewa kematian Shinigami yang bisa membunuh siapa saja yang namanya ditulis, memicu perang pikiran melawan detektif legendaris L.',
-    'https://covers.openlibrary.org/b/id/1041608-L.jpg'
+    '/covers/book-km-05.jpg'
 ),
 (
     'book-km-06',
@@ -189,7 +189,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     80,
     'Petualangan klasik Son Goku, bocah berekor monyet berhati polos pemilik tongkat ajaib, bersama Bulma mengumpulkan tujuh bola naga legendaris pengabul harapan.',
-    'https://covers.openlibrary.org/b/id/8786816-L.jpg'
+    '/covers/book-km-06.jpg'
 ),
 (
     'book-km-07',
@@ -200,7 +200,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     65,
     'Ichigo Kurosaki, remaja yang mampu melihat arwah, tak sengaja menerima kekuatan Shinigami dari Rukia Kuchiki demi melindungi keluarganya dari serangan Hollow ganas.',
-    'https://covers.openlibrary.org/b/id/2806276-L.jpg'
+    '/covers/book-km-07.jpg'
 ),
 (
     'book-km-08',
@@ -211,7 +211,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     90,
     'Tanjiro Kamado bergabung dengan Korps Pemburu Iblis untuk membalaskan dendam keluarganya dan mencari penawar agar adiknya Nezuko kembali menjadi manusia normal.',
-    'https://covers.openlibrary.org/b/id/9364005-L.jpg'
+    '/covers/book-km-08.jpg'
 ),
 (
     'book-km-09',
@@ -222,7 +222,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     70,
     'Dua bersaudara alkemis Edward dan Alphonse Elric menempuh perjalanan berbahaya mencari Batu Bertuah demi mengembalikan raga mereka yang hilang akibat transmutasi terlarang.',
-    'https://covers.openlibrary.org/b/id/863658-L.jpg'
+    '/covers/book-km-09.jpg'
 ),
 (
     'book-km-10',
@@ -233,7 +233,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     60,
     'Ken Kaneki bertransformasi menjadi manusia setengah ghoul setelah operasi darurat, terperangkap di antara dunia manusia dan makhluk pemangsa daging di kota Tokyo.',
-    'https://covers.openlibrary.org/b/id/7900452-L.jpg'
+    '/covers/book-km-10.jpg'
 ),
 (
     'book-fs-01',
@@ -244,7 +244,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     75,
     'Bocah yatim piatu Harry Potter menemukan warisan sihirnya dan memulai pendidikan di Sekolah Sihir Hogwarts, mengungkap misteri Batu Bertuah yang diincar Voldemort.',
-    'https://covers.openlibrary.org/b/id/15155833-L.jpg'
+    '/covers/book-fs-01.jpg'
 ),
 (
     'book-fs-02',
@@ -255,7 +255,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     55,
     'Bilbo Baggins ditarik dari kenyamanan liang hobbit-nya oleh penyihir Gandalf dan tiga belas kurcaci dalam ekspedisi merebut kembali Gunung Sunyi dari cengkeraman naga Smaug.',
-    'https://covers.openlibrary.org/b/id/14627509-L.jpg'
+    '/covers/book-fs-02.jpg'
 ),
 (
     'book-fs-03',
@@ -266,7 +266,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     60,
     'Frodo Baggins mengemban takdir berat membawa Cincin Utama menuju kawah Gunung Doom demi menghancurkan kekuatan tiran Penguasa Kegelapan Sauron.',
-    'https://covers.openlibrary.org/b/id/12898711-L.jpg'
+    '/covers/book-fs-03.jpg'
 ),
 (
     'book-fs-04',
@@ -277,7 +277,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     50,
     'Mahakarya fiksi ilmiah berlatar planet gurun Arrakis, mengisahkan intrik kekuasaan politik antargalaksi, perang memperebutkan rempah ''melange'', dan takdir mesianik Paul Atreides.',
-    'https://covers.openlibrary.org/b/id/11481354-L.jpg'
+    '/covers/book-fs-04.jpg'
 ),
 (
     'book-fs-05',
@@ -288,7 +288,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     65,
     'Percy Jackson menyadari dirinya adalah anak setengah dewa dari Poseidon, dan dituduh mencuri petir azimat milik Zeus dalam petualangan mitologi Yunani modern.',
-    'https://covers.openlibrary.org/b/id/8234857-L.jpg'
+    '/covers/book-fs-05.jpg'
 ),
 (
     'book-fs-06',
@@ -299,7 +299,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     45,
     'Buku pertama seri A Song of Ice and Fire; intrik politik berdarah, pengkhianatan, dan perang takhta memperebutkan Iron Throne di Westeros saat musim dingin abadi kian mendekat.',
-    'https://covers.openlibrary.org/b/id/8259447-L.jpg'
+    '/covers/book-fs-06.jpg'
 ),
 (
     'book-fs-07',
@@ -310,7 +310,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     60,
     'Empat bersaudara Pevensie melangkah melewati lemari pakaian ajaib menuju Narnia, negeri musim dingin abadi yang ditaklukkan Penyihir Putih dan menanti kembalinya Aslan.',
-    'https://covers.openlibrary.org/b/id/12693821-L.jpg'
+    '/covers/book-fs-07.jpg'
 ),
 (
     'book-fs-08',
@@ -321,7 +321,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     45,
     'Melalui ilmu psikohistori, ilmuwan Hari Seldon meramalkan runtuhnya Kekaisaran Galaksi dan mendirikan Yayasan untuk memperpendek masa kegelapan peradaban manusia.',
-    'https://covers.openlibrary.org/b/id/8235114-L.jpg'
+    '/covers/book-fs-08.jpg'
 ),
 (
     'book-fs-09',
@@ -332,7 +332,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     50,
     'Masa depan distopia ketika membaca buku dianggap kejahatan dan tugas ''pemadam kebakaran'' adalah membakar semua teks cetak demi menjaga keseragaman pikiran publik.',
-    'https://covers.openlibrary.org/b/id/10078233-L.jpg'
+    '/covers/book-fs-09.jpg'
 ),
 (
     'book-fs-10',
@@ -343,7 +343,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     50,
     'Andrew ''Ender'' Wiggin, bocah jenius taktik militer, dilatih dalam simulasi perang antariksa tanpa menyadari bahwa nasib peradaban manusia berada di tangannya.',
-    'https://covers.openlibrary.org/b/id/8231991-L.jpg'
+    '/covers/book-fs-10.jpg'
 ),
 (
     'book-rm-01',
@@ -354,7 +354,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     60,
     'Kisah cinta mengharukan antara Hazel Grace Lancaster dan Augustus Waters yang bertemu di kelompok pendukung penderita kanker, belajar merengkuh makna hidup dan keterbatasan waktu.',
-    'https://covers.openlibrary.org/b/id/7418786-L.jpg'
+    '/covers/book-rm-01.jpg'
 ),
 (
     'book-rm-02',
@@ -365,7 +365,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     65,
     'Dinamika cerdas antara Elizabeth Bennet yang mandiri dan Mr. Darcy yang arogan, menyingkap prasangka kelas sosial dan esensi cinta sejati di Inggris abad ke-19.',
-    'https://covers.openlibrary.org/b/id/14348537-L.jpg'
+    '/covers/book-rm-02.jpg'
 ),
 (
     'book-rm-03',
@@ -376,7 +376,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     40,
     'Balas dendam dan gairah cinta membara nan destruktif antara Heathcliff dan Catherine Earnshaw di padang liar berangin Yorkshire.',
-    'https://covers.openlibrary.org/b/id/12648831-L.jpg'
+    '/covers/book-rm-03.jpg'
 ),
 (
     'book-rm-04',
@@ -387,7 +387,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     45,
     'Perjalanan emosional dan keteguhan moral seorang gadis yatim piatu yang menjadi guru privat di Thornfield Hall dan jatuh cinta pada tuannya yang misterius, Edward Rochester.',
-    'https://covers.openlibrary.org/b/id/8232947-L.jpg'
+    '/covers/book-rm-04.jpg'
 ),
 (
     'book-rm-05',
@@ -398,7 +398,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     55,
     'Louisa Clark yang ceria menjadi pengasuh Will Traynor, pria kaya yang lumpuh pascakecelakaan; kisah menyentuh tentang cinta yang mengubah cara pandang hidup selamanya.',
-    'https://covers.openlibrary.org/b/id/8712391-L.jpg'
+    '/covers/book-rm-05.jpg'
 ),
 (
     'book-rm-06',
@@ -409,7 +409,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     50,
     'Emma Woodhouse, gadis cerdas yang gemar menjodohkan orang lain, terjebak dalam kesalahpahaman hatinya sendiri sebelum menyadari cinta sejatinya di dekatnya.',
-    'https://covers.openlibrary.org/b/id/10592812-L.jpg'
+    '/covers/book-rm-06.jpg'
 ),
 (
     'book-rm-07',
@@ -420,7 +420,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     70,
     'Drama romantika legendaris tentang dua sejoli dari keluarga yang berseteru di Verona, berkorban demi mempertahankan cinta mereka melampaui kebencian turun-temurun.',
-    'https://covers.openlibrary.org/b/id/8225841-L.jpg'
+    '/covers/book-rm-07.jpg'
 ),
 (
     'book-rm-08',
@@ -431,7 +431,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     45,
     'Kontras kepribadian dua saudari Dashwood—Elinor yang rasional dan Marianne yang penuh emosi—dalam mengarungi patah hati dan menemukan kebahagiaan sejati.',
-    'https://covers.openlibrary.org/b/id/9283741-L.jpg'
+    '/covers/book-rm-08.jpg'
 ),
 (
     'book-rm-09',
@@ -442,7 +442,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     50,
     'Hubungan rumit nan intim antara Marianne dan Connell yang melintasi masa sekolah hingga kuliah di Dublin, menyelami keintiman, kerapuhan, dan penerimaan diri.',
-    'https://covers.openlibrary.org/b/id/9238471-L.jpg'
+    '/covers/book-rm-09.jpg'
 ),
 (
     'book-rm-10',
@@ -453,7 +453,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     60,
     'Dinamika kehangatan, cinta, dan impian empat saudari March (Meg, Jo, Beth, dan Amy) tumbuh dewasa di tengah masa Perang Saudara Amerika.',
-    'https://covers.openlibrary.org/b/id/8234710-L.jpg'
+    '/covers/book-rm-10.jpg'
 ),
 (
     'book-mt-01',
@@ -464,7 +464,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     65,
     'Dua belas kasus detektif legendaris Sherlock Holmes bersama sahabatnya Dr. John Watson, menggunakan observasi tajam dan deduksi logis memecahkan teka-teki rumit London.',
-    'https://covers.openlibrary.org/b/id/6717853-L.jpg'
+    '/covers/book-mt-01.jpg'
 ),
 (
     'book-mt-02',
@@ -475,7 +475,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     60,
     'Detektif Hercule Poirot terjebak di kereta mewah Orient Express yang tertimbun salju, berusaha memecahkan pembunuhan jutawan Amerika di antara belasan penumpang yang mencurigakan.',
-    'https://covers.openlibrary.org/b/id/11100465-L.jpg'
+    '/covers/book-mt-02.jpg'
 ),
 (
     'book-mt-03',
@@ -486,7 +486,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     65,
     'Sepuluh orang asing diundang ke pulau terpencil Soldier Island, satu per satu tewas secara misterius mengikuti bait lagu anak-anak tanpa ada pelaku yang terlihat.',
-    'https://covers.openlibrary.org/b/id/8234912-L.jpg'
+    '/covers/book-mt-03.jpg'
 ),
 (
     'book-mt-04',
@@ -497,7 +497,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     55,
     'Ahli simbologi Robert Langdon mengungkap teka-teki pembunuhan kurator Museum Louvre yang menuntun pada rahasia terlarang Holy Grail dan persaudaraan rahasia Sion.',
-    'https://covers.openlibrary.org/b/id/9255229-L.jpg'
+    '/covers/book-mt-04.jpg'
 ),
 (
     'book-mt-05',
@@ -508,7 +508,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     50,
     'Legenda anjing raksasa berkutuk yang menghantui rawa-rawa Dartmoor mengancam pewaris terakhir keluarga Baskerville, memicu penyelidikan intensif Holmes dan Watson.',
-    'https://covers.openlibrary.org/b/id/8231940-L.jpg'
+    '/covers/book-mt-05.jpg'
 ),
 (
     'book-mt-06',
@@ -519,7 +519,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     55,
     'Pacuan waktu mendebarkan di Vatikan melawan komplotan rahasia Illuminati yang mencuri tabung antimateri berkekuatan bom nuklir jelang konklaf pemilihan Paus baru.',
-    'https://covers.openlibrary.org/b/id/8234919-L.jpg'
+    '/covers/book-mt-06.jpg'
 ),
 (
     'book-mt-07',
@@ -530,7 +530,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     45,
     'Lenyapnya Amy Dunne di hari ulang tahun pernikahan kelima menyeret suaminya Nick ke dalam sorotan media dan tuduhan pembunuhan di balik kebohongan psikologis yang manipulatif.',
-    'https://covers.openlibrary.org/b/id/8234812-L.jpg'
+    '/covers/book-mt-07.jpg'
 ),
 (
     'book-mt-08',
@@ -541,7 +541,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     50,
     'Jurnalis Mikael Blomkvist dan hacker eksentrik Lisbeth Salander menyelidiki hilangnya gadis pewaris dinasti Vanger empat puluh tahun lalu, membongkar skandal gelap keluarga kaya Swedia.',
-    'https://covers.openlibrary.org/b/id/8231948-L.jpg'
+    '/covers/book-mt-08.jpg'
 ),
 (
     'book-mt-09',
@@ -552,7 +552,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     50,
     'Agen muda FBI Clarice Starling meminta bantuan mantan psikiater kanibal Dr. Hannibal Lecter di penjara keamanan maksimum demi menangkap pembunuh berantai berjuluk ''Buffalo Bill''.',
-    'https://covers.openlibrary.org/b/id/8234911-L.jpg'
+    '/covers/book-mt-09.jpg'
 ),
 (
     'book-mt-10',
@@ -563,7 +563,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     45,
     'Marsekal AS Teddy Daniels menginvestigasi hilangnya pasien pembunuh dari rumah sakit jiwa berkeamanan tinggi di pulau terisolasi, mengungkap konspirasi dan trauma masa lalu.',
-    'https://covers.openlibrary.org/b/id/8234891-L.jpg'
+    '/covers/book-mt-10.jpg'
 ),
 (
     'book-pd-01',
@@ -574,7 +574,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     90,
     'Kerangka kerja ilmiah terbukti tentang bagaimana perubahan kecil 1% setiap hari melalui pembentukan sistem dan identitas mampu menghasilkan transformasi hidup luar biasa.',
-    'https://covers.openlibrary.org/b/id/12539702-L.jpg'
+    '/covers/book-pd-01.jpg'
 ),
 (
     'book-pd-02',
@@ -585,7 +585,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     85,
     '19 cerita menarik mengenai bagaimana perilaku, emosi, dan bias manusia menentukan keberhasilan finansial jauh lebih besar daripada sekadar rumus matematika atau kepintaran.',
-    'https://covers.openlibrary.org/b/id/10389354-L.jpg'
+    '/covers/book-pd-02.jpg'
 ),
 (
     'book-pd-03',
@@ -596,7 +596,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     80,
     'Pelajaran finansial fundamental membedakan aset dan liabilitas, literasi keuangan, dan pola pikir mandiri menuju kebebasan finansial dari dua sosok figur ayah.',
-    'https://covers.openlibrary.org/b/id/8315603-L.jpg'
+    '/covers/book-pd-03.jpg'
 ),
 (
     'book-pd-04',
@@ -607,7 +607,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     60,
     'Catatan renungan pribadi Kaisar Romawi dan filsuf Stoa tentang disiplin diri, ketabahan mental dalam menghadapi kesulitan, serta integritas moral hidup selaras dengan alam.',
-    'https://covers.openlibrary.org/b/id/12847192-L.jpg'
+    '/covers/book-pd-04.jpg'
 ),
 (
     'book-pd-05',
@@ -618,7 +618,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     70,
     'Pendekatan holistik dan terintegrasi berlandaskan etika karakter untuk memecahkan masalah pribadi dan profesional, mulai dari proaktif hingga terus mengasah kemampuan diri.',
-    'https://covers.openlibrary.org/b/id/8234910-L.jpg'
+    '/covers/book-pd-05.jpg'
 ),
 (
     'book-pd-06',
@@ -629,7 +629,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     65,
     'Panduan praktis menguasai kemampuan fokus tanpa distraksi pada tugas menuntut kognitif, sebuah keterampilan bernilai tinggi yang langka di dunia ekonomi modern.',
-    'https://covers.openlibrary.org/b/id/8712399-L.jpg'
+    '/covers/book-pd-06.jpg'
 ),
 (
     'book-pd-07',
@@ -640,7 +640,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.9,
     55,
     'Pemenang Nobel Ekonomi menyingkap dua sistem yang mengendalikan cara berpikir manusia: Sistem 1 yang cepat dan intuitif, serta Sistem 2 yang lambat dan logis.',
-    'https://covers.openlibrary.org/b/id/8231999-L.jpg'
+    '/covers/book-pd-07.jpg'
 ),
 (
     'book-pd-08',
@@ -651,7 +651,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     5.0,
     60,
     'Pengalaman bertahan hidup psikiater di kamp konsentrasi Auschwitz yang melahirkan logoterapi: keyakinan bahwa pendorong utama manusia adalah menemukan makna dalam penderitaan.',
-    'https://covers.openlibrary.org/b/id/8234719-L.jpg'
+    '/covers/book-pd-08.jpg'
 ),
 (
     'book-pd-09',
@@ -662,7 +662,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.8,
     65,
     'Konsep Lingkaran Emas (Golden Circle) yang menjelaskan bagaimana para pemimpin dan inovator terhebat di dunia menginspirasi orang lain dengan memulai dari tujuan dan alasan fundamental.',
-    'https://covers.openlibrary.org/b/id/8234921-L.jpg'
+    '/covers/book-pd-09.jpg'
 ),
 (
     'book-pd-10',
@@ -673,7 +673,7 @@ INSERT INTO public.books (id, genre_id, title, author, price, rating, stock, des
     4.7,
     75,
     'Pendekatan segar tanpa basa-basi tentang menerima keterbatasan diri, memilih hal-hal yang benar-benar bernilai untuk diperjuangkan, dan melepaskan standar kesempurnaan semu.',
-    'https://covers.openlibrary.org/b/id/8712388-L.jpg'
+    '/covers/book-pd-10.jpg'
 )
 ON CONFLICT (id) DO UPDATE SET
     title = EXCLUDED.title,

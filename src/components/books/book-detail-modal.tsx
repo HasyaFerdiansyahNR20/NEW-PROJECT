@@ -19,6 +19,15 @@ interface BookDetailModalProps {
 export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps) {
   const { addItem } = useCart();
   const [isAdded, setIsAdded] = React.useState(false);
+  const [imgSrc, setImgSrc] = React.useState(book?.cover_url || (book ? `/covers/${book.id}.jpg` : ''));
+  const [imgError, setImgError] = React.useState(false);
+
+  React.useEffect(() => {
+    if (book) {
+      setImgSrc(book.cover_url || `/covers/${book.id}.jpg`);
+      setImgError(false);
+    }
+  }, [book?.cover_url, book?.id]);
 
   if (!book) return null;
 
@@ -37,12 +46,19 @@ export function BookDetailModal({ book, isOpen, onClose }: BookDetailModalProps)
         {/* Cover Preview */}
         <div className="sm:col-span-5 flex flex-col items-center">
           <div className="relative aspect-[3/4] w-full max-w-[220px] rounded-xl overflow-hidden border border-stone-200 shadow-book bg-stone-100">
-            {book.cover_url ? (
+            {imgSrc && !imgError ? (
               <Image
-                src={book.cover_url}
+                src={imgSrc}
                 alt={book.title}
                 fill
                 className="object-cover"
+                onError={() => {
+                  if (imgSrc !== `/covers/${book.id}.jpg`) {
+                    setImgSrc(`/covers/${book.id}.jpg`);
+                  } else {
+                    setImgError(true);
+                  }
+                }}
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-stone-200 text-stone-500">

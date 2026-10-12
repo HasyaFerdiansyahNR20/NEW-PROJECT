@@ -68,7 +68,7 @@ export default async function HomePage() {
                 <div className="mt-4 flex gap-4 items-center">
                   <div className="relative w-24 h-32 rounded-lg overflow-hidden flex-shrink-0 shadow-md bg-stone-100">
                     <Image
-                      src="https://covers.openlibrary.org/b/id/6643692-L.jpg"
+                      src="/covers/book-nf-01.jpg"
                       alt="Bumi Manusia"
                       fill
                       className="object-cover"

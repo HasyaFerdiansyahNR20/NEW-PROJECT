@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { Star, ShoppingBag, Check } from '@phosphor-icons/react';
+import { Star, ShoppingBag, Check, BookOpen } from '@phosphor-icons/react';
 import { Book } from '@/types';
 import { formatRupiah } from '@/lib/utils';
 import { useCart } from '@/hooks/use-cart';
@@ -16,6 +16,13 @@ interface BookCardProps {
 export function BookCard({ book, onSelect }: BookCardProps) {
   const { addItem } = useCart();
   const [isAdded, setIsAdded] = React.useState(false);
+  const [imgSrc, setImgSrc] = React.useState(book.cover_url || `/covers/${book.id}.jpg`);
+  const [imgError, setImgError] = React.useState(false);
+
+  React.useEffect(() => {
+    setImgSrc(book.cover_url || `/covers/${book.id}.jpg`);
+    setImgError(false);
+  }, [book.cover_url, book.id]);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -31,17 +38,26 @@ export function BookCard({ book, onSelect }: BookCardProps) {
     >
       {/* Cover Asset Container */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100">
-        {book.cover_url ? (
+        {imgSrc && !imgError ? (
           <Image
-            src={book.cover_url}
+            src={imgSrc}
             alt={book.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={() => {
+              if (imgSrc !== `/covers/${book.id}.jpg`) {
+                setImgSrc(`/covers/${book.id}.jpg`);
+              } else {
+                setImgError(true);
+              }
+            }}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-stone-200 text-stone-500 text-sm">
-            Sampul Buku
+          <div className="w-full h-full flex flex-col items-center justify-center bg-stone-100 p-4 text-center">
+            <BookOpen size={36} className="text-stone-400 mb-2" />
+            <span className="text-xs font-serif font-bold text-stone-700 line-clamp-2">{book.title}</span>
+            <span className="text-[10px] text-stone-500 mt-1">{book.author}</span>
           </div>
         )}
 
