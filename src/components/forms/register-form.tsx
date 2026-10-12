@@ -23,34 +23,37 @@ export function RegisterForm() {
     setLoading(true);
 
     try {
-      const supabase = createClient();
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-            phone_number: phoneNumber,
-          },
-        },
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+          fullName,
+          phoneNumber,
+        }),
       });
 
-      if (signUpError) {
-        setError(signUpError.message);
+      const result = await res.json();
+      if (!res.ok || result.error) {
+        setError(result.error || 'Gagal mendaftarkan akun.');
         setLoading(false);
         return;
       }
 
-      // Upsert to profiles table if possible
-      if (data.user) {
-        await supabase.from('profiles').upsert({
-          user_id: data.user.id,
-          full_name: fullName,
-          phone_number: phoneNumber,
-        });
-      }
+      // Immediately sign in so user gets an active session
+      const supabase = createClient();
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-      router.push('/dashboard');
+      if (signInError) {
+        // If login still requires manual confirmation or has warning, redirect to login
+        router.push('/login');
+      } else {
+        router.push('/dashboard');
+      }
       router.refresh();
     } catch (err: any) {
       setError(err?.message || 'Gagal mendaftarkan akun.');

@@ -22,10 +22,32 @@ export function LoginForm() {
 
     try {
       const supabase = createClient();
-      const { error: signInError } = await supabase.auth.signInWithPassword({
+      let { error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
+
+      // Handle unconfirmed email automatically
+      if (signInError && signInError.message.toLowerCase().includes('not confirmed')) {
+        try {
+          const confirmRes = await fetch('/api/auth/auto-confirm', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+
+          if (confirmRes.ok) {
+            // Retry login immediately
+            const retry = await supabase.auth.signInWithPassword({
+              email,
+              password,
+            });
+            signInError = retry.error;
+          }
+        } catch {
+          // Continue to error display
+        }
+      }
 
       if (signInError) {
         setError(signInError.message);
