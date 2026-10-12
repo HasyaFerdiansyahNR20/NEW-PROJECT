@@ -29,14 +29,15 @@ export async function updateSession(request: NextRequest) {
     }
   );
 
-  // Protected routes check
+  // Protected routes check (Dashboard & Admin)
   const isDashboardRoute = request.nextUrl.pathname.startsWith('/dashboard');
+  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
   const isAuthRoute =
     request.nextUrl.pathname.startsWith('/login') ||
     request.nextUrl.pathname.startsWith('/register');
 
   // Skip remote network auth call on public browsing routes for instant responsiveness
-  if (!isDashboardRoute && !isAuthRoute) {
+  if (!isDashboardRoute && !isAdminRoute && !isAuthRoute) {
     return supabaseResponse;
   }
 
@@ -45,7 +46,7 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user && isDashboardRoute) {
+  if (!user && (isDashboardRoute || isAdminRoute)) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     url.searchParams.set('redirectedFrom', request.nextUrl.pathname);

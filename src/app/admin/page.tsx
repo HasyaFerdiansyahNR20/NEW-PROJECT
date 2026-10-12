@@ -9,11 +9,18 @@ import {
   ArrowSquareOut,
   ShieldCheck,
 } from '@phosphor-icons/react/dist/ssr';
+import { getCurrentUser } from '@/server/actions/auth-actions';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
+  const user = await getCurrentUser();
+  if (!user) {
+    redirect('/login?redirectedFrom=/admin');
+  }
+
   const [books, genres] = await Promise.all([getBooks(), getGenres()]);
 
   // Compute business metrics
